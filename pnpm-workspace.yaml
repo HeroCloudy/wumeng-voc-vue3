@@ -1,0 +1,7 @@
+packages:
+  # 指定根目录直接子目录中的包
+  - 'voc-portal'
+  - 'voc-editor'
+  - 'voc-component-lib'
+  - 'voc-client'
+  - 'voc-mock'
