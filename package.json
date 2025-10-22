@@ -9,7 +9,7 @@
   },
   "scripts": {
     "mock:dev": "pnpm --filter=@wumeng-voc-vue3/voc-mock dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "portal:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-portal dev"
   },
   "keywords": [
     "voc",
