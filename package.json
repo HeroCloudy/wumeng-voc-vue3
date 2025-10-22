@@ -8,6 +8,7 @@
     "email": "hero_cloudy@126.com"
   },
   "scripts": {
+    "mock:dev": "pnpm --filter=@wumeng-voc-vue3/voc-mock dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
