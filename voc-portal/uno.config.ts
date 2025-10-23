@@ -1,6 +1,12 @@
-import { defineConfig, transformerDirectives, transformerVariantGroup } from 'unocss'
+import { defineConfig, transformerDirectives, transformerVariantGroup, presetWind4 } from 'unocss'
 
 export default defineConfig({
-  // ...UnoCSS options
+  presets: [
+    presetWind4({
+      preflights: {
+        reset: true,
+      },
+    }),
+  ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
 })

@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
   ],
-  css: ['@unocss/reset/tailwind-compat.css', '~/assets/scss/index.scss'],
+  css: ['~/assets/scss/index.scss'],
   icon: {
     localApiEndpoint: '/nuxt-icon',
   },

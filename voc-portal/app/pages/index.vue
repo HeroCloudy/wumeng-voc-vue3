@@ -6,15 +6,40 @@
 -->
 <template>
   <div class="index">
-    <div class="title">Home Page</div>
+    <header-nav @item-click="onItemClick" />
+
+    <div ref="heroRef">
+      <home-hero />
+    </div>
+
+    <div ref="featureRef">
+      <home-feature />
+    </div>
+
+    <home-back-top-btn />
   </div>
 </template>
 
-<script setup lang="ts"></script>
-<style scoped lang="scss">
-.index {
-  .title {
-    @apply text-2xl text-blue font-bold;
-  }
+<script setup lang="ts">
+import type { NavItem } from '~/components/home/types'
+
+const heroRef = useTemplateRef<HTMLDivElement>('heroRef')
+const featureRef = useTemplateRef<HTMLDivElement>('featureRef')
+
+const refMap = ref<any>({})
+
+onMounted(() => {
+  nextTick(() => {
+    refMap.value = {
+      heroRef,
+      featureRef,
+    }
+  })
+})
+
+const onItemClick = (val: NavItem) => {
+  const target = refMap.value[val.targetRef]
+  target?.scrollIntoView({ behavior: 'smooth' })
 }
-</style>
+</script>
+<style scoped lang="scss"></style>
