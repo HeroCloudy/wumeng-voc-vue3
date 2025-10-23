@@ -17,7 +17,7 @@ export class AuthService {
     })
   }
 
-  getUserInfo() {
+  getUserInfo(): any {
     return req({
       url: '/auth/profile',
       method: 'get',

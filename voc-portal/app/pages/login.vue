@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import type { FormInstance } from 'element-plus'
 import { authService } from '~/services/auth'
-// import { useCoreStore } from '@/stores/modules/core.ts'
+import { useCoreStore } from '~/store/core'
 
 const router = useRouter()
 const form = ref<Record<string, any>>({
@@ -63,7 +63,7 @@ const form = ref<Record<string, any>>({
 
 const formRef = useTemplateRef<FormInstance>('formRef')
 
-// const coreStore = useCoreStore()
+const coreStore = useCoreStore()
 
 onMounted(() => {
   const { username, password } = getUserInfoFromStorage()
@@ -77,7 +77,7 @@ const { loading, run: onLogin } = useRequest(() => authService.login(form.value)
   manual: true,
   onSuccess(v) {
     console.log(v)
-    // coreStore.setToken(v?.token ?? '')
+    coreStore.setToken(v?.token ?? '')
     router.push('/')
   },
 })

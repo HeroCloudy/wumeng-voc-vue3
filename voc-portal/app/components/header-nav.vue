@@ -22,8 +22,14 @@
         </nav>
       </div>
       <div class="navbar-right" v-show="!scrolled">
-        <nuxt-link href="/login" class="btn btn-login">登录</nuxt-link>
-        <span href="#" class="btn btn-register" @click="onRegBtnClick">立即体验</span>
+        <template v-if="userInfo">
+          <nuxt-link href="/" class="btn btn-text">我的问卷</nuxt-link>
+          <span @click="onLogoutBtnClick" class="btn btn-text">退出</span>
+        </template>
+        <template v-else>
+          <nuxt-link href="/login" class="btn btn-text">登录</nuxt-link>
+          <span href="#" class="btn btn-register" @click="onRegBtnClick">立即体验</span>
+        </template>
       </div>
     </div>
   </header>
@@ -31,6 +37,7 @@
 
 <script setup lang="ts">
 import { useScroll } from '~/hooks/use-scroll'
+import { useCoreStore } from '~/store/core'
 import type { NavItem } from './home/types'
 
 const emits = defineEmits<{
@@ -40,6 +47,11 @@ const emits = defineEmits<{
 defineProps<{
   scrolled?: boolean
 }>()
+
+const router = useRouter()
+const coreStore = useCoreStore()
+
+const userInfo = computed(() => coreStore.userInfo)
 
 const { isScrolled } = useScroll(60)
 
@@ -56,6 +68,11 @@ const onNavItemClick = (item: NavItem) => {
 const onRegBtnClick = () => {
   onNavItemClick({ title: '注册', targetRef: 'registerRef' })
 }
+
+const onLogoutBtnClick = () => {
+  coreStore.logout()
+  router.push('/')
+}
 </script>
 <style scoped lang="scss">
 /* 导航栏样式 - 沉浸式导航 */
@@ -64,7 +81,7 @@ const onRegBtnClick = () => {
   transition: all 0.8s ease;
 
   &.scrolled {
-    @apply bg-white text-[#333] opacity-70;
+    @apply bg-white text-[#333] opacity-80;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 
     .logo {
@@ -112,7 +129,7 @@ const onRegBtnClick = () => {
 }
 
 .navbar.scrolled .nav-link:hover {
-  color: #1c9399;
+  color: var(--wm-color-primary);
 }
 
 .nav-link::after {
@@ -127,7 +144,7 @@ const onRegBtnClick = () => {
 }
 
 .navbar.scrolled .nav-link::after {
-  background-color: #1c9399;
+  background-color: var(--wm-color-primary);
 }
 
 .nav-link:hover::after {
@@ -135,11 +152,11 @@ const onRegBtnClick = () => {
 }
 
 /* 登录注册按钮在透明导航时的样式 */
-.navbar .btn-login {
+.navbar .btn-text {
   color: white;
 }
 
-.navbar.scrolled .btn-login {
+.navbar.scrolled .btn-text {
   color: #666;
 }
 
@@ -160,11 +177,11 @@ const onRegBtnClick = () => {
 }
 
 /* 登录注册按钮在透明导航时的样式 */
-.navbar .btn-login {
+.navbar .btn-text {
   color: white;
 }
 
-.navbar.scrolled .btn-login {
+.navbar.scrolled .btn-text {
   color: #666;
 }
 

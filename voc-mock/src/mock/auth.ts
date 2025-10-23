@@ -4,7 +4,7 @@ const Random = Mock.Random
 
 export const authReqList = [
   // 获取用户信息
-  buildItem('/auth/info', 'get', () =>
+  buildItem('/auth/profile', 'get', () =>
     ok({
       username: Random.title(),
       nickname: Random.cname(),
