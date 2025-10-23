@@ -20,6 +20,10 @@
       <home-tech-stack />
     </div>
 
+    <div ref="registerRef">
+      <home-register />
+    </div>
+
     <home-back-top-btn />
   </div>
 </template>
@@ -30,6 +34,7 @@ import type { NavItem } from '~/components/home/types'
 const heroRef = useTemplateRef<HTMLDivElement>('heroRef')
 const featureRef = useTemplateRef<HTMLDivElement>('featureRef')
 const techRef = useTemplateRef<HTMLDivElement>('techRef')
+const registerRef = useTemplateRef<HTMLDivElement>('registerRef')
 
 const refMap = ref<any>({})
 
@@ -39,6 +44,7 @@ onMounted(() => {
       heroRef,
       featureRef,
       techRef,
+      registerRef,
     }
   })
 })

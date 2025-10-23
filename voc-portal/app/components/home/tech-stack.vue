@@ -104,7 +104,7 @@ const techGroupList = [
     title: '开发工具链',
     list: [
       {
-        icon: 'fa-package',
+        icon: 'fa7-regular:folder-open',
         name: 'PNPM 包管理器',
         desc: '高效的包管理工具，采用硬链接节省磁盘空间，提升依赖安装速度，支持workspace模式',
       },
@@ -129,7 +129,7 @@ const techGroupList = [
 </script>
 <style scoped lang="scss">
 .technology-stack {
-  @apply bg-white text-[#333] py-[80px] relative;
+  @apply bg-white text-[#333] py-[90px] relative;
 }
 
 /* 技术栈详情 */

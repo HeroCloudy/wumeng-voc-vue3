@@ -23,7 +23,7 @@
       </div>
       <div class="navbar-right">
         <a href="#" class="btn btn-login">登录</a>
-        <a href="#" class="btn btn-register">立即体验</a>
+        <span href="#" class="btn btn-register" @click="onRegBtnClick">立即体验</span>
       </div>
     </div>
   </header>
@@ -47,6 +47,10 @@ const navList = ref<NavItem[]>([
 
 const onNavItemClick = (item: NavItem) => {
   emits('item-click', item)
+}
+
+const onRegBtnClick = () => {
+  onNavItemClick({ title: '注册', targetRef: 'registerRef' })
 }
 </script>
 <style scoped lang="scss">
@@ -136,8 +140,8 @@ const onNavItemClick = (item: NavItem) => {
 }
 
 .navbar .btn-register {
+  @apply cursor-pointer text-white;
   background-color: rgba(255, 255, 255, 0.2);
-  color: white;
   border: 1px solid white;
 }
 
