@@ -14,7 +14,18 @@ export default defineNuxtConfig({
   icon: {
     localApiEndpoint: '/nuxt-icon',
   },
+  ssr: true, // 是否开启 ssr
   devServer: {
     port: 8080,
+  },
+  nitro: {
+    // 代理，前后端分离有用
+    devProxy: {
+      '/voc-api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        prependPath: true,
+      },
+    },
   },
 })

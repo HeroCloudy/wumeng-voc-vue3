@@ -79,6 +79,7 @@
 
 <script setup lang="ts">
 import type { FormInstance } from 'element-plus'
+import { authService } from '~/services/auth'
 
 const router = useRouter()
 const form = ref({
@@ -90,16 +91,14 @@ const form = ref({
 
 const formRef = useTemplateRef<FormInstance>('formRef')
 
-const loading = ref(false)
-
-// const { loading, run: onRegister } = useRequest(() => registerService(form.value), {
-//   manual: true,
-//   onSuccess(v: any) {
-//     console.log(v)
-//     ElMessage.success('注册成功')
-//     router.push('/')
-//   },
-// })
+const { loading, run: onRegister } = useRequest(() => authService.register(form.value), {
+  manual: true,
+  onSuccess(v: any) {
+    console.log(v)
+    ElMessage.success('注册成功')
+    router.push('/login')
+  },
+})
 
 const onSubmit = async () => {
   const valid = await formRef.value?.validate()
@@ -107,7 +106,7 @@ const onSubmit = async () => {
     return
   }
   console.log(form.value)
-  // onRegister()
+  onRegister()
 }
 </script>
 <style scoped lang="scss">

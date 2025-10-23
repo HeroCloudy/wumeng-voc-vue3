@@ -50,10 +50,8 @@
 </template>
 
 <script setup lang="ts">
-// import { PATH_MANAGE_INDEX, PATH_REGISTER } from '@/router'
 import type { FormInstance } from 'element-plus'
-// import { useRequest } from '@/hooks/use-request.ts'
-// import { loginService } from '@/service/user.ts'
+import { authService } from '~/services/auth'
 // import { useCoreStore } from '@/stores/modules/core.ts'
 
 const router = useRouter()
@@ -75,15 +73,14 @@ onMounted(() => {
   }
 })
 
-const loading = ref<boolean>(false)
-
-// const { loading, run: onLogin } = useRequest(() => loginService(form.value), {
-//   manual: true,
-//   onSuccess(v) {
-//     coreStore.setToken(v?.token ?? '')
-//     router.push(PATH_MANAGE_INDEX)
-//   },
-// })
+const { loading, run: onLogin } = useRequest(() => authService.login(form.value), {
+  manual: true,
+  onSuccess(v) {
+    console.log(v)
+    // coreStore.setToken(v?.token ?? '')
+    router.push('/')
+  },
+})
 
 const onSubmit = async () => {
   const valid = await formRef.value?.validate()
@@ -98,7 +95,7 @@ const onSubmit = async () => {
   } else {
     forgetUser()
   }
-  // onLogin()
+  onLogin()
 }
 
 const USERNAME_KEY = 'USERNAME'
