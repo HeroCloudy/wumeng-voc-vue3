@@ -9,9 +9,9 @@
     <div class="container">
       <div class="register-content">
         <h2 class="title">立即注册，开始免费使用</h2>
-        <p class="desc">300万+用户的共同选择，专业的在线问卷解决方案</p>
+        <p class="desc">无数用户的共同选择，专业的在线问卷解决方案</p>
 
-        <el-form ref="formRef" :model="form" class="register-form" size="large">
+        <el-form ref="formRef" :model="form" class="login-register-form" size="large">
           <el-form-item
             prop="username"
             :rules="[
@@ -66,10 +66,8 @@
               </el-button>
             </div>
             <p class="mt-20px text-[#666] text-14px flex items-center justify-center">
-              已有账号？<a href="#"
-                ><el-button type="primary" link @click="router.push('/login')"
-                  >立即登录</el-button
-                ></a
+              已有账号？<el-button type="primary" link @click="router.push('/login')"
+                >立即登录</el-button
               >
             </p>
           </div>
@@ -115,7 +113,7 @@ const onSubmit = async () => {
 <style scoped lang="scss">
 /* 注册区域样式 */
 .register {
-  @apply pt-90px pb-90px text-white;
+  @apply pt-90px pb-90px text-white h-screen;
   background: linear-gradient(135deg, #1c9399 0%, #29b0b7 100%);
   color: white;
 
@@ -131,10 +129,5 @@ const onSubmit = async () => {
       opacity: 0.9;
     }
   }
-}
-
-.register-form {
-  @apply bg-white p-40px rd-[8px];
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 </style>

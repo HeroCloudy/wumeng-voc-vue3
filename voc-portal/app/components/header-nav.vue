@@ -6,14 +6,14 @@
 -->
 <template>
   <!-- 导航栏 -->
-  <header :class="['navbar', isScrolled ? 'scrolled' : '']">
+  <header :class="['navbar', isScrolled || scrolled ? 'scrolled' : '']">
     <div class="container">
       <div class="left">
-        <a href="#" class="logo">
+        <nuxt-link href="/" class="logo">
           <img src="~/assets/images/logo.png" class="logo-img" />
           <span>WUMENG 问卷</span>
-        </a>
-        <nav class="main-nav">
+        </nuxt-link>
+        <nav class="main-nav" v-show="!scrolled">
           <ul class="flex">
             <li class="nav-item" v-for="(item, index) in navList" :key="index">
               <a class="nav-link" @click="onNavItemClick(item)">{{ item.title }}</a>
@@ -21,8 +21,8 @@
           </ul>
         </nav>
       </div>
-      <div class="navbar-right">
-        <a href="#" class="btn btn-login">登录</a>
+      <div class="navbar-right" v-show="!scrolled">
+        <nuxt-link href="/login" class="btn btn-login">登录</nuxt-link>
         <span href="#" class="btn btn-register" @click="onRegBtnClick">立即体验</span>
       </div>
     </div>
@@ -35,6 +35,10 @@ import type { NavItem } from './home/types'
 
 const emits = defineEmits<{
   'item-click': [item: NavItem]
+}>()
+
+defineProps<{
+  scrolled?: boolean
 }>()
 
 const { isScrolled } = useScroll(60)

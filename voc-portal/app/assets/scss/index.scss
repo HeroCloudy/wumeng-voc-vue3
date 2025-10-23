@@ -103,3 +103,8 @@ body {
     }
   }
 }
+
+.login-register-form {
+  @apply  bg-white p-40px rd-[8px] w-full;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
