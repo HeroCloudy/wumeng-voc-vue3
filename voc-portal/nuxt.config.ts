@@ -8,8 +8,9 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
+    '@element-plus/nuxt',
   ],
-  css: ['~/assets/scss/index.scss'],
+  css: ['element-plus/dist/index.css', '~/assets/scss/index.scss'],
   icon: {
     localApiEndpoint: '/nuxt-icon',
   },

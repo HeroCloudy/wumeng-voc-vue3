@@ -16,7 +16,7 @@
         <nav class="main-nav">
           <ul class="flex">
             <li class="nav-item" v-for="(item, index) in navList" :key="index">
-              <a href="#" class="nav-link" @click="onNavItemClick(item)">{{ item.title }}</a>
+              <a class="nav-link" @click="onNavItemClick(item)">{{ item.title }}</a>
             </li>
           </ul>
         </nav>
@@ -90,7 +90,7 @@ const onNavItemClick = (item: NavItem) => {
 }
 
 .nav-link {
-  @apply block py-10px px-0 text-white decoration-none relative text-16px font-500;
+  @apply block py-10px px-0 text-white decoration-none relative text-16px font-500 cursor-pointer;
   transition: all 0.3s ease;
 }
 

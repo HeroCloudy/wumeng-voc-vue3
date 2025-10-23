@@ -13,7 +13,7 @@
         <p class="desc">专业的在线问卷解决方案，满足您的多样化需求</p>
       </div>
       <div class="features-grid">
-        <div class="item" v-for="(item, index) in features" :key="index">
+        <div v-for="(item, index) in features" :key="index" class="item">
           <div class="icon">
             <icon :name="item.icon" />
           </div>
@@ -56,25 +56,6 @@ const features = ref([
     @apply absolute top-[-50px] left-0 right-0 h-[100px] bg-white;
     content: '';
     transform: skewY(-2deg);
-  }
-
-  .section-header {
-    @apply text-center mb-60px relative z-1;
-
-    .title {
-      @apply text-36px font-700 text-[#333] mb-20px relative inline-block;
-
-      &::after {
-        @apply absolute bottom-[-10px] left-50% w-full h-3px;
-        content: '';
-        transform: translateX(-50%);
-        background-color: var(--wm-color-primary);
-      }
-    }
-
-    .desc {
-      @apply text-[#666] max-w-[700px] mx-auto;
-    }
   }
 
   .features-grid {

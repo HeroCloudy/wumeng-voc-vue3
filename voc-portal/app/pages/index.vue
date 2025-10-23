@@ -16,6 +16,10 @@
       <home-feature />
     </div>
 
+    <div ref="techRef">
+      <home-tech-stack />
+    </div>
+
     <home-back-top-btn />
   </div>
 </template>
@@ -25,6 +29,7 @@ import type { NavItem } from '~/components/home/types'
 
 const heroRef = useTemplateRef<HTMLDivElement>('heroRef')
 const featureRef = useTemplateRef<HTMLDivElement>('featureRef')
+const techRef = useTemplateRef<HTMLDivElement>('techRef')
 
 const refMap = ref<any>({})
 
@@ -33,6 +38,7 @@ onMounted(() => {
     refMap.value = {
       heroRef,
       featureRef,
+      techRef,
     }
   })
 })
