@@ -21,12 +21,12 @@
           </ul>
         </nav>
       </div>
-      <div class="navbar-right" v-show="!scrolled">
+      <div class="navbar-right">
         <template v-if="userInfo">
-          <nuxt-link href="/" class="btn btn-text">我的问卷</nuxt-link>
+          <nuxt-link href="/voc-list/list" class="btn btn-text">我的问卷</nuxt-link>
           <span @click="onLogoutBtnClick" class="btn btn-text">退出</span>
         </template>
-        <template v-else>
+        <template v-else-if="!scrolled">
           <nuxt-link href="/login" class="btn btn-text">登录</nuxt-link>
           <span href="#" class="btn btn-register" @click="onRegBtnClick">立即体验</span>
         </template>
