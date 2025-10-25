@@ -1,7 +1,8 @@
-import WmHelloWorld from '@/components/hello-world'
 import type { App } from 'vue'
+import WmHelloWorld from '@/components/hello-world'
+import { WmVocInfo, WmVocInfoPropForm } from '@/components/wm/voc/info'
 
-const components = [WmHelloWorld]
+const components = [WmHelloWorld, WmVocInfo, WmVocInfoPropForm]
 
 export default {
   install: (app: App): void => {
