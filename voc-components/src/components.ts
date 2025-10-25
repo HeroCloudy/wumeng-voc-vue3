@@ -4,6 +4,7 @@ import { WmVocInfo, WmVocInfoPropForm } from '@/components/wm/voc/info'
 import { WmVocInput, WmVocInputPropForm } from '@/components/wm/voc/input'
 import { WmVocTitle, WmVocTitlePropForm } from '@/components/wm/voc/title/index.ts'
 import { WmVocTextarea, WmVocTextareaPropForm } from '@/components/wm/voc/textarea/index.ts'
+import { WmVocParagraph, WmVocParagraphPropForm } from '@/components/wm/voc/paragraph/index.ts'
 
 const components = [
   WmHelloWorld,
@@ -15,6 +16,8 @@ const components = [
   WmVocTitlePropForm,
   WmVocTextarea,
   WmVocTextareaPropForm,
+  WmVocParagraph,
+  WmVocParagraphPropForm,
 ]
 
 export default {
@@ -36,6 +39,8 @@ export {
   WmVocTitlePropForm,
   WmVocTextarea,
   WmVocTextareaPropForm,
+  WmVocParagraph,
+  WmVocParagraphPropForm,
 }
 
 // export default WmVocUi

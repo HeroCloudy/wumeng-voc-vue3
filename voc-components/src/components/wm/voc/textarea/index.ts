@@ -9,7 +9,7 @@ withInstall('WmVocTextareaPropForm', WmVocTextareaPropForm)
 
 export default WmVocTextarea
 
-export const WmVocTextareaInfo: ComponentConfig = {
+export const WmVocTextareaConfig: ComponentConfig = {
   type: 'textarea',
   title: '多行输入框',
   component: WmVocTextarea,

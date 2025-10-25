@@ -4,6 +4,7 @@
     <wm-voc-input />
     <wm-voc-title />
     <wm-voc-textarea />
+    <wm-voc-paragraph />
   </div>
 </template>
 
