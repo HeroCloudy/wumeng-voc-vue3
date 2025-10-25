@@ -67,10 +67,10 @@ const props = defineProps<{
 const router = useRouter()
 
 const toEdit = () => {
-  router.push(`/voc-detail/${props.item.id}`)
+  router.push(`/voc-detail/edit/${props.item.id}`)
 }
 const toStat = () => {
-  router.push(`/voc-detail/${props.item.id}`)
+  router.push(`/voc-detail/stat/${props.item.id}`)
 }
 const onTitleClick = () => {
   if (props.item.isPublished) {
