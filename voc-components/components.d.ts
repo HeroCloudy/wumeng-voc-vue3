@@ -13,6 +13,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+    ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElInput: typeof import('element-plus/es')['ElInput']
@@ -23,6 +25,9 @@ declare module 'vue' {
     ElSpace: typeof import('element-plus/es')['ElSpace']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
+    WmVocCheckbox: typeof import('./src/components/wm/voc/checkbox/index.vue')['default']
+    WmVocCheckboxPropForm: typeof import('./src/components/wm/voc/checkbox/prop-form.vue')['default']
+    WmVocCheckboxStat: typeof import('./src/components/wm/voc/checkbox/stat.vue')['default']
     WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
     WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
     WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
@@ -42,6 +47,8 @@ declare module 'vue' {
 // For TSX support
 declare global {
   const ElButton: typeof import('element-plus/es')['ElButton']
+  const ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+  const ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
   const ElForm: typeof import('element-plus/es')['ElForm']
   const ElFormItem: typeof import('element-plus/es')['ElFormItem']
   const ElInput: typeof import('element-plus/es')['ElInput']
@@ -52,6 +59,9 @@ declare global {
   const ElSpace: typeof import('element-plus/es')['ElSpace']
   const ElSwitch: typeof import('element-plus/es')['ElSwitch']
   const HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
+  const WmVocCheckbox: typeof import('./src/components/wm/voc/checkbox/index.vue')['default']
+  const WmVocCheckboxPropForm: typeof import('./src/components/wm/voc/checkbox/prop-form.vue')['default']
+  const WmVocCheckboxStat: typeof import('./src/components/wm/voc/checkbox/stat.vue')['default']
   const WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
   const WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
   const WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']

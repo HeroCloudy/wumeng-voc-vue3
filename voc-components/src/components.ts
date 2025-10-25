@@ -22,6 +22,11 @@ import {
   WmVocRadioPropForm,
   WmVocRadioConfig,
 } from '@/components/wm/voc/radio/index.ts'
+import {
+  WmVocCheckbox,
+  WmVocCheckboxPropForm,
+  WmVocCheckboxConfig,
+} from '@/components/wm/voc/checkbox/index.ts'
 
 const components = [
   WmHelloWorld,
@@ -37,6 +42,8 @@ const components = [
   WmVocParagraphPropForm,
   WmVocRadio,
   WmVocRadioPropForm,
+  WmVocCheckbox,
+  WmVocCheckboxPropForm,
 ]
 
 export default {
@@ -62,6 +69,8 @@ export {
   WmVocParagraphPropForm,
   WmVocRadio,
   WmVocRadioPropForm,
+  WmVocCheckbox,
+  WmVocCheckboxPropForm,
 
   // component config
   WmVocInfoConfig,
@@ -70,6 +79,7 @@ export {
   WmVocTextareaConfig,
   WmVocParagraphConfig,
   WmVocRadioConfig,
+  WmVocCheckboxConfig,
 }
 
 // export default WmVocUi

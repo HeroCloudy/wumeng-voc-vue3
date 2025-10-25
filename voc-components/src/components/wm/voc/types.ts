@@ -5,13 +5,15 @@ import type { WmVocTitlePropsType } from '@/components/wm/voc/title/props.ts'
 import type { WmVocTextareaPropsType } from '@/components/wm/voc/textarea/props.ts'
 import type { WmVocParagraphPropsType } from '@/components/wm/voc/paragraph/props.ts'
 import type { WmVocRadioPropsType } from '@/components/wm/voc/radio/props.ts'
+import type { WmVocCheckboxPropsType } from '@/components/wm/voc/checkbox/props.ts'
 
 export type VocComponentPropsType = WmVocInfoPropsType &
   WmVocInputPropsType &
   WmVocTitlePropsType &
   WmVocTextareaPropsType &
   WmVocParagraphPropsType &
-  WmVocRadioPropsType
+  WmVocRadioPropsType &
+  WmVocCheckboxPropsType
 
 /**
  * 每个组件需要导出的配置信息的结构定义
