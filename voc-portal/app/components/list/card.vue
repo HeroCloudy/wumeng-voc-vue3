@@ -5,9 +5,9 @@
  @time: 2025/10/24 10:08
 -->
 <template>
-  <div :class="['list-card', item.isStar ? 'starred' : '']">
+  <div :class="['list-card', item.isPublished ? 'published' : '']">
     <div class="card-header">
-      <div class="title">
+      <div class="title" @click="onTitleClick">
         <icon v-if="item.isStar" name="fa-star" class="icon" />
         {{ item.title }}
       </div>
@@ -29,11 +29,11 @@
     </div>
     <div class="card-actions">
       <div class="action-buttons">
-        <el-button v-if="!item.isPublished">
+        <el-button v-if="!item.isPublished" @click="toEdit">
           <icon name="fa-pencil" class="icon" />
           编辑问卷
         </el-button>
-        <el-button v-if="item.isPublished">
+        <el-button v-if="item.isPublished" @click="toStat">
           <icon name="fa:bar-chart" class="icon" />
           数据统计
         </el-button>
@@ -60,9 +60,25 @@
 <script setup lang="ts">
 import type { Survey } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   item: Survey
 }>()
+
+const router = useRouter()
+
+const toEdit = () => {
+  router.push(`/voc-detail/${props.item.id}`)
+}
+const toStat = () => {
+  router.push(`/voc-detail/${props.item.id}`)
+}
+const onTitleClick = () => {
+  if (props.item.isPublished) {
+    toStat()
+  } else {
+    toEdit()
+  }
+}
 </script>
 <style scoped lang="scss">
 .list-card {
@@ -97,7 +113,7 @@ defineProps<{
     }
   }
 
-  &.starred {
+  &.published {
     border-left: 4px solid #1c9399;
     background: linear-gradient(135deg, #ffffff 0%, #f0f9f9 100%);
 

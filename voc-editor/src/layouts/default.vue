@@ -1,11 +1,5 @@
 <template>
-  <div>
-    <header>
-      <router-link to="/" class="item">home</router-link>
-      <router-link to="/demo" class="item">demo</router-link>
-    </header>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script setup lang="ts"></script>
