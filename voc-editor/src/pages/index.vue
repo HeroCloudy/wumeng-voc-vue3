@@ -3,6 +3,7 @@
     <wm-voc-info title="测试问卷信息" />
     <wm-voc-input />
     <wm-voc-title />
+    <wm-voc-textarea />
   </div>
 </template>
 

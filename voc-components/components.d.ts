@@ -24,6 +24,8 @@ declare module 'vue' {
     WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
     WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
     WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
+    WmVocTextarea: typeof import('./src/components/wm/voc/textarea/index.vue')['default']
+    WmVocTextareaPropForm: typeof import('./src/components/wm/voc/textarea/prop-form.vue')['default']
     WmVocTitle: typeof import('./src/components/wm/voc/title/index.vue')['default']
     WmVocTitlePropForm: typeof import('./src/components/wm/voc/title/prop-form.vue')['default']
   }
@@ -43,6 +45,8 @@ declare global {
   const WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
   const WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
   const WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
+  const WmVocTextarea: typeof import('./src/components/wm/voc/textarea/index.vue')['default']
+  const WmVocTextareaPropForm: typeof import('./src/components/wm/voc/textarea/prop-form.vue')['default']
   const WmVocTitle: typeof import('./src/components/wm/voc/title/index.vue')['default']
   const WmVocTitlePropForm: typeof import('./src/components/wm/voc/title/prop-form.vue')['default']
 }
