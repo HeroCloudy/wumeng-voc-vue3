@@ -6,6 +6,7 @@
     <wm-voc-textarea />
     <wm-voc-paragraph />
     <wm-voc-radio />
+    <wm-voc-checkbox />
   </div>
 </template>
 

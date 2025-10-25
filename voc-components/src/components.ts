@@ -1,7 +1,11 @@
 import type { App } from 'vue'
 import WmHelloWorld from '@/components/hello-world'
-import { WmVocInfo, WmVocInfoPropForm, WmVocInfoConfig } from '@/components/wm/voc/info'
-import { WmVocInput, WmVocInputPropForm, WmVocInputConfig } from '@/components/wm/voc/input'
+import { WmVocInfo, WmVocInfoPropForm, WmVocInfoConfig } from '@/components/wm/voc/info/index.ts'
+import {
+  WmVocInput,
+  WmVocInputPropForm,
+  WmVocInputConfig,
+} from '@/components/wm/voc/input/index.ts'
 import {
   WmVocTitle,
   WmVocTitlePropForm,
@@ -20,11 +24,13 @@ import {
 import {
   WmVocRadio,
   WmVocRadioPropForm,
+  WmVocRadioStat,
   WmVocRadioConfig,
 } from '@/components/wm/voc/radio/index.ts'
 import {
   WmVocCheckbox,
   WmVocCheckboxPropForm,
+  WmVocCheckboxStat,
   WmVocCheckboxConfig,
 } from '@/components/wm/voc/checkbox/index.ts'
 
@@ -42,8 +48,10 @@ const components = [
   WmVocParagraphPropForm,
   WmVocRadio,
   WmVocRadioPropForm,
+  WmVocRadioStat,
   WmVocCheckbox,
   WmVocCheckboxPropForm,
+  WmVocCheckboxStat,
 ]
 
 export default {
@@ -69,8 +77,10 @@ export {
   WmVocParagraphPropForm,
   WmVocRadio,
   WmVocRadioPropForm,
+  WmVocRadioStat,
   WmVocCheckbox,
   WmVocCheckboxPropForm,
+  WmVocCheckboxStat,
 
   // component config
   WmVocInfoConfig,

@@ -56,11 +56,12 @@ export default defineConfig({
       fileName: (format) => `wm-voc-ui.${format}.js`, // 输出文件名
     },
     rollupOptions: {
-      external: ['vue', 'element-plus'],
+      external: ['vue', 'element-plus', 'echarts'],
       output: {
         globals: {
           vue: 'Vue',
           'element-plus': 'ElementPlus',
+          echarts: 'Echarts',
         },
         exports: 'named',
       },

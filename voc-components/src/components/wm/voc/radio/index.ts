@@ -2,11 +2,12 @@ import WmVocRadio from './index.vue'
 import WmVocRadioPropForm from './prop-form.vue'
 import type { ComponentConfig } from '../types.ts'
 import { defaultProps } from './props.ts'
-import Stat from './stat.vue'
+import WmVocRadioStat from './stat.vue'
 import { withInstall } from '@/utils/with-install.ts'
 
 withInstall('WmVocRadio', WmVocRadio)
 withInstall('WmVocRadioPropForm', WmVocRadioPropForm)
+withInstall('WmVocRadioStat', WmVocRadioStat)
 
 export default WmVocRadio
 
@@ -16,7 +17,7 @@ export const WmVocRadioConfig: ComponentConfig = {
   component: WmVocRadio,
   defaultProps,
   propComponent: WmVocRadioPropForm,
-  statComponent: Stat,
+  statComponent: WmVocRadioStat,
 }
 
-export { WmVocRadio, WmVocRadioPropForm }
+export { WmVocRadio, WmVocRadioPropForm, WmVocRadioStat }
