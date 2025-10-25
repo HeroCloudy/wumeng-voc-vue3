@@ -19,6 +19,8 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
     WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
     WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
+    WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
+    WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
   }
 }
 
@@ -31,4 +33,6 @@ declare global {
   const HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
   const WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
   const WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
+  const WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
+  const WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
 }
