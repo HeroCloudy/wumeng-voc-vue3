@@ -9,7 +9,8 @@
   },
   "scripts": {
     "mock:dev": "pnpm --filter=@wumeng-voc-vue3/voc-mock dev",
-    "portal:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-portal dev"
+    "portal:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-portal dev",
+    "editor:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-editor dev"
   },
   "keywords": [
     "voc",
