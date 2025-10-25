@@ -1,10 +1,27 @@
 import type { App } from 'vue'
 import WmHelloWorld from '@/components/hello-world'
-import { WmVocInfo, WmVocInfoPropForm } from '@/components/wm/voc/info'
-import { WmVocInput, WmVocInputPropForm } from '@/components/wm/voc/input'
-import { WmVocTitle, WmVocTitlePropForm } from '@/components/wm/voc/title/index.ts'
-import { WmVocTextarea, WmVocTextareaPropForm } from '@/components/wm/voc/textarea/index.ts'
-import { WmVocParagraph, WmVocParagraphPropForm } from '@/components/wm/voc/paragraph/index.ts'
+import { WmVocInfo, WmVocInfoPropForm, WmVocInfoConfig } from '@/components/wm/voc/info'
+import { WmVocInput, WmVocInputPropForm, WmVocInputConfig } from '@/components/wm/voc/input'
+import {
+  WmVocTitle,
+  WmVocTitlePropForm,
+  WmVocTitleConfig,
+} from '@/components/wm/voc/title/index.ts'
+import {
+  WmVocTextarea,
+  WmVocTextareaPropForm,
+  WmVocTextareaConfig,
+} from '@/components/wm/voc/textarea/index.ts'
+import {
+  WmVocParagraph,
+  WmVocParagraphPropForm,
+  WmVocParagraphConfig,
+} from '@/components/wm/voc/paragraph/index.ts'
+import {
+  WmVocRadio,
+  WmVocRadioPropForm,
+  WmVocRadioConfig,
+} from '@/components/wm/voc/radio/index.ts'
 
 const components = [
   WmHelloWorld,
@@ -18,6 +35,8 @@ const components = [
   WmVocTextareaPropForm,
   WmVocParagraph,
   WmVocParagraphPropForm,
+  WmVocRadio,
+  WmVocRadioPropForm,
 ]
 
 export default {
@@ -41,6 +60,16 @@ export {
   WmVocTextareaPropForm,
   WmVocParagraph,
   WmVocParagraphPropForm,
+  WmVocRadio,
+  WmVocRadioPropForm,
+
+  // component config
+  WmVocInfoConfig,
+  WmVocInputConfig,
+  WmVocTitleConfig,
+  WmVocTextareaConfig,
+  WmVocParagraphConfig,
+  WmVocRadioConfig,
 }
 
 // export default WmVocUi

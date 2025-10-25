@@ -5,6 +5,7 @@
     <wm-voc-title />
     <wm-voc-textarea />
     <wm-voc-paragraph />
+    <wm-voc-radio />
   </div>
 </template>
 <script setup lang="ts"></script>
