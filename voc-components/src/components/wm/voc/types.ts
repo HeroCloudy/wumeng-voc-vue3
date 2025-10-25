@@ -1,7 +1,9 @@
 import type { Component } from 'vue'
 import type { WmVocInfoPropsType } from '@/components/wm/voc/info/props.ts'
+import type { WmVocInputPropsType } from '@/components/wm/voc/input/props.ts'
+import type { WmVocTitlePropsType } from '@/components/wm/voc/title/props.ts'
 
-export type VocComponentPropsType = WmVocInfoPropsType // VocInputPropsType &
+export type VocComponentPropsType = WmVocInfoPropsType & WmVocInputPropsType & WmVocTitlePropsType
 
 /**
  * 每个组件需要导出的配置信息的结构定义

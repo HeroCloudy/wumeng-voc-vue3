@@ -16,11 +16,16 @@ declare module 'vue' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElInput: typeof import('element-plus/es')['ElInput']
+    ElOption: typeof import('element-plus/es')['ElOption']
+    ElSelect: typeof import('element-plus/es')['ElSelect']
+    ElSwitch: typeof import('element-plus/es')['ElSwitch']
     HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
     WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
     WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
     WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
     WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
+    WmVocTitle: typeof import('./src/components/wm/voc/title/index.vue')['default']
+    WmVocTitlePropForm: typeof import('./src/components/wm/voc/title/prop-form.vue')['default']
   }
 }
 
@@ -30,9 +35,14 @@ declare global {
   const ElForm: typeof import('element-plus/es')['ElForm']
   const ElFormItem: typeof import('element-plus/es')['ElFormItem']
   const ElInput: typeof import('element-plus/es')['ElInput']
+  const ElOption: typeof import('element-plus/es')['ElOption']
+  const ElSelect: typeof import('element-plus/es')['ElSelect']
+  const ElSwitch: typeof import('element-plus/es')['ElSwitch']
   const HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
   const WmVocInfo: typeof import('./src/components/wm/voc/info/index.vue')['default']
   const WmVocInfoPropForm: typeof import('./src/components/wm/voc/info/prop-form.vue')['default']
   const WmVocInput: typeof import('./src/components/wm/voc/input/index.vue')['default']
   const WmVocInputPropForm: typeof import('./src/components/wm/voc/input/prop-form.vue')['default']
+  const WmVocTitle: typeof import('./src/components/wm/voc/title/index.vue')['default']
+  const WmVocTitlePropForm: typeof import('./src/components/wm/voc/title/prop-form.vue')['default']
 }

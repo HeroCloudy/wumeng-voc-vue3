@@ -1,8 +1,9 @@
 <template>
-  <div class="text-red">Hello</div>
-  <wm-hello-world />
-
-  <wm-voc-info title="测试问卷信息" />
+  <div class="w-600px mx-auto mt-30px">
+    <wm-voc-info title="测试问卷信息" />
+    <wm-voc-input />
+    <wm-voc-title />
+  </div>
 </template>
 
 <script setup lang="ts">
