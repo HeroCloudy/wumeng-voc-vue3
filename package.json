@@ -11,7 +11,9 @@
     "mock:dev": "pnpm --filter=@wumeng-voc-vue3/voc-mock dev",
     "portal:dev": "pnpm --filter=@wumeng-voc-vue3/voc-portal dev",
     "editor:dev": "pnpm --filter=@wumeng-voc-vue3/voc-editor dev",
-    "components:dev": "pnpm --filter=@wumeng-voc-vue3/voc-components dev"
+    "components:dev": "pnpm --filter=@wumeng-voc-vue3/voc-components dev",
+    "components:build": "pnpm --filter=@wumeng-voc-vue3/voc-components build",
+    "components:watch": "pnpm --filter=@wumeng-voc-vue3/voc-components build:watch"
   },
   "keywords": [
     "voc",
