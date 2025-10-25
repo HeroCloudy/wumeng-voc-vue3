@@ -5,11 +5,14 @@
   "private": false,
   "main": "./dist/wm-voc-ui.umd.js",
   "module": "./dist/wm-voc-ui.es.js",
+  "types": "./dist/wm-voc-ui.es.d.ts",
   "exports": {
-    ".":  {
+    ".": {
+      "types": "./dist/wm-voc-ui.es.d.ts",
       "import": "./dist/wm-voc-ui.es.js",
       "require": "./dist/wm-voc-ui.umd.js"
-    }
+    },
+    "./dist/voc-components.css": "./dist/voc-components.css"
   },
   "files": [
     "dist/*"
@@ -31,12 +34,14 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.394",
+    "@microsoft/api-extractor": "^7.53.3",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitejs/plugin-vue-jsx": "^5.1.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/language-core": "^3.1.2",
     "@vue/tsconfig": "^0.8.1",
     "eslint": "^9.33.0",
     "eslint-plugin-vue": "~10.4.0",
@@ -48,6 +53,7 @@
     "typescript": "~5.9.0",
     "unocss": "66.1.0-beta.11",
     "unplugin-auto-import": "^20.2.0",
+    "unplugin-dts": "1.0.0-beta.6",
     "unplugin-vue-components": "^30.0.0",
     "vite": "^7.1.7",
     "vite-plugin-svg-icons": "^2.0.1",

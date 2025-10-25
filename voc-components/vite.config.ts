@@ -8,6 +8,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import dts from 'unplugin-dts/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -34,6 +35,7 @@ export default defineConfig({
       directoryAsNamespace: true,
       resolvers: [ElementPlusResolver()],
     }),
+    dts({ bundleTypes: true, tsconfigPath: './tsconfig.app.json', processor: 'vue' }),
   ],
   resolve: {
     alias: {

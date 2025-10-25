@@ -1,9 +1,10 @@
 packages:
   - voc-portal
-  - voc-editor
   - voc-components
+  - voc-editor
   - voc-client
   - voc-mock
+  - packages/**
 
 ignoredBuiltDependencies:
   - esbuild

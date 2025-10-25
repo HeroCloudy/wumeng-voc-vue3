@@ -1,18 +1,17 @@
-import HelloWorld from '@/components/hello-world/index.vue'
+import WmHelloWorld from '@/components/hello-world'
 import type { App } from 'vue'
 
-const components = [HelloWorld]
+const components = [WmHelloWorld]
 
-const install = (app: App): void => {
-  components.forEach((component: any) => {
-    app.use(component)
-  })
+export default {
+  install: (app: App): void => {
+    console.log('------ install component -----')
+    components.forEach((component: any) => {
+      app.use(component)
+    })
+  },
 }
 
-const WmVocUi = {
-  install,
-}
+export { WmHelloWorld }
 
-export { HelloWorld }
-
-export default WmVocUi
+// export default WmVocUi

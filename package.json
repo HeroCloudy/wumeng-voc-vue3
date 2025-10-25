@@ -9,17 +9,19 @@
   },
   "scripts": {
     "mock:dev": "pnpm --filter=@wumeng-voc-vue3/voc-mock dev",
-    "portal:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-portal dev",
-    "editor:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-editor dev",
-    "components:dev":  "pnpm --filter=@wumeng-voc-vue3/voc-components dev"
+    "portal:dev": "pnpm --filter=@wumeng-voc-vue3/voc-portal dev",
+    "editor:dev": "pnpm --filter=@wumeng-voc-vue3/voc-editor dev",
+    "components:dev": "pnpm --filter=@wumeng-voc-vue3/voc-components dev"
   },
   "keywords": [
     "voc",
     "survey"
   ],
   "license": "ISC",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.19.0",
   "devDependencies": {
+    "@wumeng-voc-vue3/voc-components": "workspace:*",
+    "@wumeng-voc-vue3/voc-editor": "workspace:*",
     "prettier": "^3.6.2"
   }
 }

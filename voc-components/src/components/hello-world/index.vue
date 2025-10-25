@@ -1,5 +1,5 @@
 <template>
-  <h3 class="text-blue">Hello World, {{ msg }}</h3>
+  <h3 class="hello-world">Hello World, {{ msg }}</h3>
   <el-button type="primary">测试按钮</el-button>
 </template>
 
@@ -11,3 +11,8 @@ defineProps<{
   msg?: string
 }>()
 </script>
+<style lang="scss" scoped>
+.hello-world {
+  @apply text-xl text-blue;
+}
+</style>

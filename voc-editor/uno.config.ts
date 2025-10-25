@@ -1,6 +1,6 @@
 import {
   defineConfig,
-  presetWind,
+  presetWind3,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
@@ -8,7 +8,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetWind(),
+    presetWind3(),
     presetIcons({
       prefix: 'i-',
       extraProperties: {

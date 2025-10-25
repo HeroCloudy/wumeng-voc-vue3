@@ -1,8 +1,8 @@
-import HelloWorld from './index.vue'
+import WmHelloWorld from './index.vue'
 import type { App } from 'vue'
 
-HelloWorld.install = (app: App) => {
-  app.component(HelloWorld.name!, HelloWorld)
+WmHelloWorld.install = (app: App) => {
+  app.component(WmHelloWorld.name!, WmHelloWorld)
 }
 
-export default HelloWorld
+export default WmHelloWorld
