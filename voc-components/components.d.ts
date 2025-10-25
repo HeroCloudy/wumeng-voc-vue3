@@ -13,20 +13,12 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
-    HelloWorld: typeof import('./src/components/hello-world.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
+    HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
   }
 }
 
 // For TSX support
 declare global {
   const ElButton: typeof import('element-plus/es')['ElButton']
-  const ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-  const ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
-  const HelloWorld: typeof import('./src/components/hello-world.vue')['default']
-  const RouterLink: typeof import('vue-router')['RouterLink']
-  const RouterView: typeof import('vue-router')['RouterView']
+  const HelloWorld: typeof import('./src/components/hello-world/index.vue')['default']
 }

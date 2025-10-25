@@ -4,6 +4,9 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'wm-hello-world',
+})
 defineProps<{
   msg?: string
 }>()

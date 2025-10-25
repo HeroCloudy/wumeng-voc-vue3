@@ -1,7 +1,7 @@
 packages:
   - voc-portal
   - voc-editor
-  - voc-component-lib
+  - voc-components
   - voc-client
   - voc-mock
 

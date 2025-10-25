@@ -1,8 +1,19 @@
 {
   "name": "@wumeng-voc-vue3/voc-components",
   "version": "1.0.0",
-  "private": true,
   "type": "module",
+  "private": false,
+  "main": "./dist/wm-voc-ui.umd.js",
+  "module": "./dist/wm-voc-ui.es.js",
+  "exports": {
+    ".":  {
+      "import": "./dist/wm-voc-ui.es.js",
+      "require": "./dist/wm-voc-ui.umd.js"
+    }
+  },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

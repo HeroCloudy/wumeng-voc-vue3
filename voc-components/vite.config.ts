@@ -47,4 +47,21 @@ export default defineConfig({
     //   },
     // },
   },
+  build: {
+    lib: {
+      entry: 'src/components.ts', // 你的主入口文件
+      name: 'wm-voc-ui', // 你的库名称
+      fileName: (format) => `wm-voc-ui.${format}.js`, // 输出文件名
+    },
+    rollupOptions: {
+      external: ['vue', 'element-plus'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          'element-plus': 'ElementPlus',
+        },
+        exports: 'named',
+      },
+    },
+  },
 })
