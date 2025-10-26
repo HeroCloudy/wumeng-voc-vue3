@@ -91,7 +91,7 @@ const { loading: publishLoading, run: onPublishBtnClick } = useRequest(
     manual: true,
     onSuccess() {
       ElMessage.success('问卷发布成功')
-      router.replace(`/detail/stat/${id.value}`)
+      router.replace(`/stat/${id.value}`)
     },
   },
 )
