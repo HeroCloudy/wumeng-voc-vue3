@@ -9,6 +9,7 @@
 </template>
 
 <script setup lang="ts">
+import { nextTick, useTemplateRef, ref, onMounted, watch } from 'vue'
 import * as echarts from 'echarts'
 
 const props = defineProps<{

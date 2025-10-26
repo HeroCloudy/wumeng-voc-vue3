@@ -11,6 +11,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { defaultProps, type WmVocTitlePropsType } from './props.ts'
 
 const props = withDefaults(defineProps<WmVocTitlePropsType>(), defaultProps)

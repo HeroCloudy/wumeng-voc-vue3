@@ -92,4 +92,6 @@ export {
   WmVocCheckboxConfig,
 }
 
+export * from '@/components/wm/voc/types'
+
 // export default WmVocUi

@@ -1,0 +1,51 @@
+<!--
+ @name: component-lib.vue
+ @description: 左侧-组件库
+ @author: 程序员优雅哥 youyacoder
+ @time: 2025/10/15 22:01
+-->
+<template>
+  <el-scrollbar height="100%">
+    <div v-for="(item, index) in componentGroup" :key="index" class="mb-4">
+      <div class="title">{{ item.groupName }}</div>
+      <div v-for="(c, i) in item.components" :key="i" class="wrapper" @click="onItemClick(c)">
+        <div class="pointer-events-none">
+          <component :is="c.component" />
+        </div>
+      </div>
+    </div>
+  </el-scrollbar>
+</template>
+
+<script setup lang="ts">
+import { componentGroup } from '@/utils/voc-component'
+import type { ComponentConfig } from '@wumeng-voc-vue3/voc-components'
+import { type ComponentInfo, useEditorStore } from '@/stores/modules/editor.ts'
+
+const editorStore = useEditorStore()
+
+const onItemClick = (item: ComponentConfig) => {
+  const { title, type, defaultProps } = item
+  const newComponent: ComponentInfo = {
+    frontId: `${new Date().getTime()}`,
+    title,
+    type,
+    props: { ...defaultProps },
+  }
+  editorStore.addComponent(newComponent)
+}
+</script>
+<style scoped lang="scss">
+.title {
+  @apply font-bold my-2;
+}
+
+.wrapper {
+  @apply mb-3 cursor-pointer px-4 py-1 bg-[var(--bg-color)];
+  border-radius: 3px;
+
+  &:hover {
+    @apply bg-gray-1;
+  }
+}
+</style>
