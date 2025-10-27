@@ -14,6 +14,14 @@ export class SurveyService {
   remove(id: string) {
     return req({ url: `/survey/${id}`, method: 'delete' })
   }
+
+  batchRemove(ids: string[]) {
+    return req({ url: `/survey/batch`, method: 'delete', body: { ids } })
+  }
+
+  recovery(id: string) {
+    return req({ url: `/survey/recovery/${id}`, method: 'put' })
+  }
 }
 
 export const surveyService = new SurveyService()

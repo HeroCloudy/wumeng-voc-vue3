@@ -42,4 +42,6 @@ export const surveyReqList = [
   buildItem('/survey/copy/:id', 'post', () => ok({ id: Random.id() })),
   // 批量彻底删除
   buildItem('/survey/batch', 'delete', () => ok()),
+  // 恢复问卷
+  buildItem('/survey/recovery/:id', 'put', () => ok()),
 ]

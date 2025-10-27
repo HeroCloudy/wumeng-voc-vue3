@@ -42,7 +42,7 @@ const { run: loadData, loading } = useRequest(
   () =>
     surveyService.getList({
       pageNo: page.value,
-      pageSize: 4,
+      pageSize: 20,
       keyword: keyword.value,
       isDeleted: 0,
     }),
