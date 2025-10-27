@@ -9,6 +9,6 @@ export interface Survey {
   isPublished: boolean
   isStar: boolean
   answerCount: number
-  createdTime: string
+  createTime: string
   isDeleted: boolean
 }

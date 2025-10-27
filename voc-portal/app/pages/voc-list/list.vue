@@ -12,7 +12,7 @@
       <el-scrollbar height="100%" @end-reached="onEndReached">
         <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-14px pl-12px pt-12px">
           <div v-for="item in list" :key="item.id">
-            <list-card :item="item" />
+            <list-card :item="item" @refresh="onRefresh" />
           </div>
           <div v-if="loading" class="hint">
             <icon name="fa:spinner" class="icon" />
@@ -29,28 +29,56 @@
 import { surveyService } from '~/services/survey'
 import type { PageResult, Survey } from '~/types'
 
+const route = useRoute()
+
 const total = ref(0)
 const list = ref<Survey[]>([])
 const page = ref(1)
 const hasMore = computed(() => total.value > list.value.length)
 
-const { run: loadData, loading } = useRequest(() => surveyService.getList({}), {
-  manual: true,
-  onSuccess(v: PageResult<Survey>) {
-    total.value = v?.total ?? 0
-    list.value.push(...(v?.list ?? []))
-  },
-})
+const keyword = computed(() => route.query?.keyword ?? '')
 
-onMounted(() => {
-  loadData()
-})
+const { run: loadData, loading } = useRequest(
+  () =>
+    surveyService.getList({
+      pageNo: page.value,
+      pageSize: 4,
+      keyword: keyword.value,
+      isDeleted: 0,
+    }),
+  {
+    manual: true,
+    onSuccess(v: PageResult<Survey>) {
+      total.value = v?.total ?? 0
+      list.value.push(...(v?.list ?? []))
+
+      page.value += 1
+    },
+  },
+)
 
 const onEndReached = (direction: string) => {
   if (direction === 'bottom' && hasMore.value) {
     loadData()
   }
 }
+
+const onRefresh = () => {
+  page.value = 1
+  list.value = []
+  total.value = 0
+  loadData()
+}
+
+watch(
+  keyword,
+  () => {
+    page.value = 1
+    list.value = []
+    loadData()
+  },
+  { immediate: true },
+)
 </script>
 <style scoped lang="scss">
 .list {

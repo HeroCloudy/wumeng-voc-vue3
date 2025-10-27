@@ -9,7 +9,14 @@
     <div class="title">{{ title }}</div>
     <div class="header-right">
       <list-search />
-      <el-button v-if="isShowAddBtn" type="primary" size="large" class="ml-6">
+      <el-button
+        v-if="isShowAddBtn"
+        type="primary"
+        size="large"
+        class="ml-6"
+        :loading="loading"
+        @click="onCreate"
+      >
         <icon name="fa-plus" class="text-11px mr-2" />
         创建问卷
       </el-button>
@@ -18,10 +25,22 @@
 </template>
 
 <script setup lang="ts">
+import { surveyService } from '~/services/survey'
+
 defineProps<{
   isShowAddBtn?: boolean
   title: string
 }>()
+
+const router = useRouter()
+
+const { loading, run: onCreate } = useRequest(surveyService.create, {
+  manual: true,
+  onSuccess: (data: string) => {
+    console.log('data', data)
+    router.push(`/voc-detail/edit/${data}`)
+  },
+})
 </script>
 <style scoped lang="scss">
 .list-header {

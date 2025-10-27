@@ -1,4 +1,6 @@
 //全局基础URL
+import { useCoreStore } from '~/store/core'
+
 const BASEURL: string = '/voc-api/api' //全局后台服务器请求地址
 
 export interface Result {
@@ -23,23 +25,28 @@ interface HttpParms {
  */
 export const req = (obj: HttpParms) => {
   return new Promise<void>((resolve, reject) => {
+    const router = useRouter()
+    const coreStore = useCoreStore()
+
     $fetch((obj.baseURL ?? BASEURL) + obj.url, {
       method: obj.method ?? 'GET',
       query: obj?.query ?? null,
       body: obj?.body ?? null,
-      onRequest({ request, options }) {
-        // 设置请求报头
-        options.headers = options.headers || {}
-        //const token = useCookie('token')
-        //@ts-ignore
-        //options.headers.Authorization = token.value||null
+      onRequest({ options }) {
+        const token = coreStore.token
+        if (token) {
+          options.headers = {
+            ...(options.headers || {}),
+            access_token: token,
+          } as Headers
+        }
       },
-      onRequestError({ request, options, error }) {
+      onRequestError({ error }) {
         // 处理请求错误
         console.log('服务器链接失败!')
         reject(error)
       },
-      onResponse({ request, response, options }) {
+      onResponse({ response }) {
         // 处理响应数据
         const { _data = {} } = response
         const { code, msg, data } = _data as Result
@@ -49,8 +56,12 @@ export const req = (obj: HttpParms) => {
         }
         resolve(data)
       },
-      onResponseError({ request, response, options }) {
+      onResponseError({ response }) {
         // 处理响应错误
+        const { status } = response
+        if (status === 401) {
+          router.replace('/login')
+        }
       },
     })
   })

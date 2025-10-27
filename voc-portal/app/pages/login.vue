@@ -78,7 +78,7 @@ const { loading, run: onLogin } = useRequest(() => authService.login(form.value)
   onSuccess(v) {
     console.log(v)
     coreStore.setToken(v?.token ?? '')
-    router.push('/')
+    router.push('/voc-list/list')
   },
 })
 

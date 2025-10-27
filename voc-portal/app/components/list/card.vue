@@ -16,11 +16,11 @@
       <div class="meta-left">
         <span class="meta-item">
           <icon name="fa-clock-o" class="icon" />
-          {{ item.createdTime }}
+          {{ item.createTime }}
         </span>
         <span class="meta-item">
           <icon name="fa-users" class="icon" />
-          答卷: {{ item.answerCount }}
+          答卷: {{ item.answerCount ?? 0 }}
         </span>
       </div>
       <div class="meta-right">
@@ -29,7 +29,7 @@
     </div>
     <div class="card-actions">
       <div class="action-buttons">
-        <el-button v-if="!item.isPublished" @click="toEdit">
+        <el-button v-if="!item.isPublished" @click="toEdit" type="primary" plain>
           <icon name="fa-pencil" class="icon" />
           编辑问卷
         </el-button>
@@ -37,19 +37,29 @@
           <icon name="fa:bar-chart" class="icon" />
           数据统计
         </el-button>
-        <el-button>
-          <icon name="fa-share-alt" class="icon" />
+        <el-button
+          plain
+          :type="item.isPublished ? 'danger' : 'primary'"
+          :loading="publishLoading"
+          @click="onPublishBtnClick"
+        >
+          <icon :name="item.isPublished ? 'tdesign:rollback' : 'fa-share-alt'" class="icon" />
           {{ item.isPublished ? '撤回' : '发布' }}
         </el-button>
       </div>
       <div class="action-icons">
-        <div class="action-btn star">
+        <div class="action-btn star" @click="onCollect" v-loading="starLoading">
           <icon :name="item.isStar ? 'fa-star-o' : 'fa-star'" />
         </div>
         <div class="action-btn">
           <icon name="fa-copy" />
         </div>
-        <div class="action-btn delete" v-if="!item.isPublished">
+        <div
+          class="action-btn delete"
+          v-if="!item.isPublished"
+          v-loading="removeLoading"
+          @click="onRemoveBtnClick"
+        >
           <icon name="fa-trash" />
         </div>
       </div>
@@ -59,9 +69,14 @@
 
 <script setup lang="ts">
 import type { Survey } from '~/types'
+import { surveyService } from '~/services/survey'
 
 const props = defineProps<{
   item: Survey
+}>()
+
+const emits = defineEmits<{
+  refresh: []
 }>()
 
 const router = useRouter()
@@ -79,6 +94,58 @@ const onTitleClick = () => {
     toEdit()
   }
 }
+
+const onPublishBtnClick = () => {
+  ElMessageBox.confirm(`是否确定${props.item.isPublished ? '撤回' : '发布'}该问卷`, 'Warning', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+  }).then(onPublish)
+}
+const { loading: publishLoading, run: onPublish } = useRequest(
+  () => {
+    const { id, isPublished } = props.item
+    return surveyService.update(id, { isPublished: isPublished ? 0 : 1 })
+  },
+  {
+    manual: true,
+    onSuccess: () => {
+      const item = props.item
+      ElMessage.success(item.isPublished ? '问卷撤回成功' : '问卷发布成功')
+      item.isPublished = !item.isPublished
+    },
+  },
+)
+
+const { loading: starLoading, run: onCollect } = useRequest(
+  () => {
+    const { id, isStar } = props.item
+    return surveyService.update(id, { isStar: isStar ? 0 : 1 })
+  },
+  {
+    manual: true,
+    onSuccess: () => {
+      const item = props.item
+      item.isStar = !item.isStar
+    },
+  },
+)
+
+const onRemoveBtnClick = () => {
+  ElMessageBox.confirm(`是否确定删除该问卷，删除后可在回收站中找回`, 'Warning', {
+    confirmButtonText: '确认',
+    cancelButtonText: '取消',
+  }).then(onRemove)
+}
+
+const { loading: removeLoading, run: onRemove } = useRequest(
+  () => surveyService.remove(props.item.id),
+  {
+    manual: true,
+    onSuccess: () => {
+      emits('refresh')
+    },
+  },
+)
 </script>
 <style scoped lang="scss">
 .list-card {

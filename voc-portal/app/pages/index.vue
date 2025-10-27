@@ -11,7 +11,6 @@
     <div ref="heroRef">
       <home-hero />
     </div>
-
     <div ref="featureRef">
       <home-feature />
     </div>

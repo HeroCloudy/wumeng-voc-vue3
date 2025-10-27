@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     // 代理，前后端分离有用
     devProxy: {
       '/voc-api': {
-        target: 'http://localhost:8000',
+        target: 'http://localhost:9001',
         changeOrigin: true,
         prependPath: true,
       },

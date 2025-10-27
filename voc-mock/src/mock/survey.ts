@@ -26,7 +26,7 @@ export const surveyReqList = [
     ok({
       id: Random.id(),
       title: Random.ctitle(),
-      desc: '问卷描述',
+      description: '问卷描述',
       js: '',
       css: '',
       isDeleted: false,
@@ -35,9 +35,11 @@ export const surveyReqList = [
     }),
   ),
   // 更新问卷
-  buildItem('/survey/:id', 'patch', () => ok()),
+  buildItem('/survey/:id', 'put', () => ok()),
+  // 逻辑删除问卷
+  buildItem('/survey/:id', 'delete', () => ok()),
   // 复制问卷
   buildItem('/survey/copy/:id', 'post', () => ok({ id: Random.id() })),
   // 批量彻底删除
-  buildItem('/survey', 'delete', () => ok()),
+  buildItem('/survey/batch', 'delete', () => ok()),
 ]

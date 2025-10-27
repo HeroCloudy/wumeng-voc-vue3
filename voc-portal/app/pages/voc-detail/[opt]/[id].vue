@@ -7,7 +7,6 @@
 <template>
   <client-only>
     <div>
-      <h1 class="text-gray text-xl">编辑页/统计页，加载子应用 {{ id }}</h1>
       <WujieVue
         width="100%"
         height="100%"
@@ -34,6 +33,10 @@ const propsToChild = computed(() => {
     token: coreStore.token,
     userInfo: coreStore.userInfo,
   }
+})
+
+definePageMeta({
+  layout: 'blank',
 })
 </script>
 <style scoped lang="scss"></style>

@@ -20,10 +20,23 @@
 </template>
 
 <script setup lang="ts">
-const value = defineModel()
+const value = defineModel<string>()
+const router = useRouter()
+const route = useRoute()
+
+onMounted(() => {
+  value.value = (route.query?.keyword ?? '') as string
+})
 
 const onSearch = () => {
   console.log('search value', value.value)
+  router.push({
+    ...route,
+    query: {
+      ...(route.query || {}),
+      keyword: value.value,
+    },
+  })
 }
 </script>
 <style scoped lang="scss">

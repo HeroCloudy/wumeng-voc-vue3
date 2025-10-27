@@ -11,7 +11,7 @@
         <el-input v-model="pageInfo.title" />
       </el-form-item>
       <el-form-item label="问卷信息" prop="desc">
-        <el-input type="textarea" :rows="3" v-model="pageInfo.desc" />
+        <el-input type="textarea" :rows="3" v-model="pageInfo.description" />
       </el-form-item>
       <el-form-item label="JS" prop="js">
         <el-input type="textarea" :rows="3" v-model="pageInfo.js" />

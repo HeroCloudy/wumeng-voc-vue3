@@ -1,6 +1,6 @@
 export interface SurveyInfo {
   title: string
-  desc?: string
+  description?: string
   js?: string
   css?: string
   isPublished?: boolean

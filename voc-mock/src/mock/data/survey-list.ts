@@ -12,7 +12,7 @@ export function buildSurveyList(opt: { size: number; isDeleted: boolean; isStar:
       isPublished: Random.boolean(),
       isStar,
       answerCount: Random.natural(50, 100),
-      createdTime: Random.datetime(),
+      createTime: Random.datetime(),
       isDeleted,
     })
   }

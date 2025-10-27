@@ -14,5 +14,6 @@
 <script setup lang="ts"></script>
 <style scoped lang="scss">
 .register {
+  @apply h-full;
 }
 </style>
