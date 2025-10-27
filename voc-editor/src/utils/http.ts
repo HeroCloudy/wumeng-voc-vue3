@@ -19,7 +19,7 @@ instance.interceptors.request.use(
     const token = coreStore.token
     const headers = config.headers || {}
     if (token) {
-      headers.authorization = `Bearer ${token}`
+      headers.access_token = token
       config.headers = headers
     }
     return config

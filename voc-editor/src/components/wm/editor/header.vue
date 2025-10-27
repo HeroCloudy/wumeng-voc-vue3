@@ -66,7 +66,7 @@ const { loading: saveLoading, run: onSave } = useRequest(
       ...pageInfo.value,
       componentList: componentList.value,
     }
-    return surveyService.updateSurvey(id.value, params)
+    return surveyService.updateSurveyAll(id.value, params)
   },
   {
     manual: true,
@@ -85,7 +85,7 @@ const { loading: publishLoading, run: onPublishBtnClick } = useRequest(
       componentList: componentList.value,
       isPublished: true,
     }
-    return surveyService.updateSurvey(id.value, params)
+    return surveyService.updateSurveyAll(id.value, params)
   },
   {
     manual: true,

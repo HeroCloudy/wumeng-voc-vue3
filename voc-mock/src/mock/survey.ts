@@ -36,6 +36,8 @@ export const surveyReqList = [
   ),
   // 更新问卷
   buildItem('/survey/:id', 'put', () => ok()),
+  // 更新问卷及组件
+  buildItem('/survey/update-all/:id', 'put', () => ok()),
   // 逻辑删除问卷
   buildItem('/survey/:id', 'delete', () => ok()),
   // 复制问卷
