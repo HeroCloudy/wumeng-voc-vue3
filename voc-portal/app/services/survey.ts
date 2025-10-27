@@ -22,6 +22,10 @@ export class SurveyService {
   recovery(id: string) {
     return req({ url: `/survey/recovery/${id}`, method: 'put' })
   }
+
+  copy(id: string) {
+    return req({ url: `/survey/copy/${id}`, method: 'post' })
+  }
 }
 
 export const surveyService = new SurveyService()

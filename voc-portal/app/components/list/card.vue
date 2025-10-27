@@ -51,9 +51,19 @@
         <div class="action-btn star" @click="onCollect" v-loading="starLoading">
           <icon :name="item.isStar ? 'fa-star-o' : 'fa-star'" />
         </div>
-        <div class="action-btn">
-          <icon name="fa-copy" />
-        </div>
+        <el-popconfirm
+          :title="`是否确定复制问卷【${item.title}】`"
+          confirm-button-text="确定复制"
+          width="300"
+          :hide-after="10"
+          @confirm="onCopy"
+        >
+          <template #reference>
+            <div class="action-btn" v-loading="copyLoading">
+              <icon name="fa-copy" />
+            </div>
+          </template>
+        </el-popconfirm>
         <div
           class="action-btn delete"
           v-if="!item.isPublished"
@@ -94,6 +104,13 @@ const onTitleClick = () => {
     toEdit()
   }
 }
+
+const { loading: copyLoading, run: onCopy } = useRequest(() => surveyService.copy(props.item.id), {
+  manual: true,
+  onSuccess(v: any) {
+    router.push(`/voc-detail/edit/${v}`)
+  },
+})
 
 const onPublishBtnClick = () => {
   ElMessageBox.confirm(`是否确定${props.item.isPublished ? '撤回' : '发布'}该问卷`, 'Warning', {

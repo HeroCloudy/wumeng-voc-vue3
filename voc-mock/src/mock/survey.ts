@@ -41,7 +41,7 @@ export const surveyReqList = [
   // 逻辑删除问卷
   buildItem('/survey/:id', 'delete', () => ok()),
   // 复制问卷
-  buildItem('/survey/copy/:id', 'post', () => ok({ id: Random.id() })),
+  buildItem('/survey/copy/:id', 'post', () => ok(Random.id())),
   // 批量彻底删除
   buildItem('/survey/batch', 'delete', () => ok()),
   // 恢复问卷

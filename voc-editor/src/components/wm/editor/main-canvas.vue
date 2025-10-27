@@ -62,8 +62,9 @@ useBindCanvasKey()
 </script>
 <style scoped lang="scss">
 .editor-canvas {
+  @apply p-4;
   .component-wrapper {
-    @apply m-3 p-3;
+    @apply p-2;
     border: 1px solid #fff;
     border-radius: 4px;
 

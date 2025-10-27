@@ -83,7 +83,7 @@ const { loading: publishLoading, run: onPublishBtnClick } = useRequest(
     const params = {
       ...pageInfo.value,
       componentList: componentList.value,
-      isPublished: true,
+      isPublished: 1,
     }
     return surveyService.updateSurveyAll(id.value, params)
   },
