@@ -45,7 +45,7 @@
       </div>
 
       <div class="right">
-        <el-button type="primary" @click="router.push(`/detail/edit/${route.params?.id ?? ''}`)">
+        <el-button type="primary" @click="router.push(`/edit/${route.params?.id ?? ''}`)">
           编辑问卷
         </el-button>
       </div>
