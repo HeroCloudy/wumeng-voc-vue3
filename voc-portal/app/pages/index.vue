@@ -9,7 +9,7 @@
     <header-nav @item-click="onItemClick" />
 
     <div ref="heroRef">
-      <home-hero />
+      <home-hero @use-now="onUseNowBtnClick" />
     </div>
     <div ref="featureRef">
       <home-feature />
@@ -29,6 +29,10 @@
 
 <script setup lang="ts">
 import type { NavItem } from '~/components/home/types'
+import { useCoreStore } from '~/store/core'
+
+const coreStore = useCoreStore()
+const router = useRouter()
 
 const heroRef = useTemplateRef<HTMLDivElement>('heroRef')
 const featureRef = useTemplateRef<HTMLDivElement>('featureRef')
@@ -47,6 +51,14 @@ onMounted(() => {
     }
   })
 })
+
+const onUseNowBtnClick = () => {
+  if (coreStore.token && coreStore.userInfo) {
+    router.push('/voc-list/list')
+  } else {
+    registerRef.value?.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 const onItemClick = (val: NavItem) => {
   const target = refMap.value[val.targetRef]

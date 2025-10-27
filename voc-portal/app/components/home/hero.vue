@@ -16,7 +16,7 @@
           300万+企业和国内90%高校的信赖之选，提供专业的问卷调查、在线考试、360度评估等一站式解决方案
         </p>
         <div class="actions">
-          <a href="#" class="btn btn-primary btn-large">立即使用</a>
+          <div @click="onUseRightNowClick" class="btn btn-primary btn-large">立即使用</div>
         </div>
 
         <!-- 特色功能列表 -->
@@ -40,6 +40,9 @@
 </template>
 
 <script setup lang="ts">
+const emits = defineEmits<{
+  'use-now': []
+}>()
 const features = ref<string[]>(['无需编程，拖拽创建', '多种题型，灵活配置', '实时统计，智能分析'])
 
 const statList = ref<{ value: string; label: string }[]>([
@@ -47,6 +50,10 @@ const statList = ref<{ value: string; label: string }[]>([
   { value: '300', label: '问卷数量' },
   { value: '4000', label: '答卷数量' },
 ])
+
+const onUseRightNowClick = () => {
+  emits('use-now')
+}
 </script>
 <style scoped lang="scss">
 /* 英雄区域样式 - 全屏炫酷效果 */
