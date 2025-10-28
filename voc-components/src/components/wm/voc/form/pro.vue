@@ -5,20 +5,19 @@
  @time: 2025/10/28 14:17
 -->
 <template>
-  <div class="voc-form">
-    <div class="wrapper">
-      <wm-voc-form-core ref="formCoreRef" :list="list" :form="form" />
-      <div class="submit-btn">
-        <el-button @click="onSubmitBtnClick" type="primary" class="btn" :disabled="preview"
-          >提交</el-button
-        >
-      </div>
+  <wm-voc-form-wrapper>
+    <wm-voc-form-core ref="formCoreRef" :list="list" :form="form" />
+    <div class="submit-btn">
+      <el-button @click="onSubmitBtnClick" type="primary" class="btn" :disabled="preview"
+        >提交</el-button
+      >
     </div>
-  </div>
+  </wm-voc-form-wrapper>
 </template>
 
 <script setup lang="ts">
 import type { FormInstance } from 'element-plus'
+import WmVocFormWrapper from './wrapper.vue'
 import { useTemplateRef } from 'vue'
 
 withDefaults(
@@ -51,19 +50,11 @@ defineExpose({
 })
 </script>
 <style scoped lang="scss">
-.voc-form {
-  @apply pt-8 bg-white;
+.submit-btn {
+  @apply w-full mx-auto sm:w-200px mt-10 mb-16;
 
-  .wrapper {
-    @apply mx-20px md:(w-80% mx-auto) lg:(w-760px mx-auto);
-
-    .submit-btn {
-      @apply w-full mx-auto sm:w-200px mt-10 mb-16;
-
-      .btn {
-        @apply w-full;
-      }
-    }
+  .btn {
+    @apply w-full;
   }
 }
 </style>

@@ -6,18 +6,19 @@
 -->
 <template>
   <div class="index">
+    <wm-voc-form-error v-if="!data?.isPublished" />
     <wm-voc-form-pro
+      v-else
       ref="vocFormProRef"
       :list="data?.componentList ?? []"
       :form="form"
       @submit="onSubmit"
     />
-    <!--    <survey :list="data?.componentList ?? []" />-->
   </div>
 </template>
 
 <script setup lang="ts">
-import { WmVocFormPro } from '@wumeng-voc-vue3/voc-components'
+import { WmVocFormPro, WmVocFormError } from '@wumeng-voc-vue3/voc-components'
 import { surveyService } from '~/services/survey-service'
 
 const route = useRoute()
@@ -36,23 +37,11 @@ const onSubmit = async () => {
     return
   }
   const { id } = data.value
-  const values: Record<string, string>[] = []
-  Object.keys(form.value).forEach((k: string) => {
-    if (form.value[k] !== undefined) {
-      if (Array.isArray(form.value[k])) {
-        for (let i = 0; i < form.value[k].length; i++) {
-          values.push({ componentId: k, value: form.value[k][i] })
-        }
-      } else {
-        values.push({ componentId: k, value: form.value[k] })
-      }
-    }
-  })
 
   const params = {
     submitter: 'bbb',
     surveyId: id,
-    values,
+    values: form.value,
   }
   console.log(params)
 

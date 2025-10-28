@@ -6,12 +6,13 @@
 -->
 <template>
   <div class="index">
-    <wm-voc-form-pro :list="data?.componentList ?? []" :form="form" :preview="true" />
+    <wm-voc-form-error v-if="!data" />
+    <wm-voc-form-pro v-else :list="data?.componentList ?? []" :form="form" :preview="true" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { WmVocFormPro } from '@wumeng-voc-vue3/voc-components'
+import { WmVocFormPro, WmVocFormError } from '@wumeng-voc-vue3/voc-components'
 import { surveyService } from '~/services/survey-service'
 
 const route = useRoute()
