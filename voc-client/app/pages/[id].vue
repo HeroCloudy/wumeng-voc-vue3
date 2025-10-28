@@ -6,16 +6,31 @@
 -->
 <template>
   <div class="index">
-    <survey :list="data?.componentList ?? []" />
+    <wm-voc-form-pro
+      ref="vocFormProRef"
+      :list="data?.componentList ?? []"
+      :form="form"
+      @submit="onSubmit"
+    />
+    <!--    <survey :list="data?.componentList ?? []" />-->
   </div>
 </template>
 
 <script setup lang="ts">
+import { WmVocFormPro } from '@wumeng-voc-vue3/voc-components'
 import { surveyService } from '~/services/survey-service'
 
 const route = useRoute()
 const id = route.params.id as string
 
+const form = ref<Record<string, any>>({})
+const vocFormProRef = useTemplateRef('vocFormProRef')
+
 const { data }: any = await useAsyncData(() => surveyService.getDetail(id))
+
+const onSubmit = async () => {
+  console.log('submit', form.value)
+  console.log(vocFormProRef.value?.getFormRef())
+}
 </script>
 <style scoped lang="scss"></style>

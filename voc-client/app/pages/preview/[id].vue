@@ -6,15 +6,18 @@
 -->
 <template>
   <div class="index">
-    <survey :list="data?.componentList ?? []" preview />
+    <wm-voc-form-pro :list="data?.componentList ?? []" :form="form" :preview="true" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { WmVocFormPro } from '@wumeng-voc-vue3/voc-components'
 import { surveyService } from '~/services/survey-service'
 
 const route = useRoute()
 const id = route.params.id as string
+
+const form = ref<Record<string, any>>({})
 
 const { data }: any = await useAsyncData(() => surveyService.getDetail(id))
 </script>

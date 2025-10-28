@@ -34,6 +34,7 @@ import {
   WmVocCheckboxConfig,
 } from '@/components/wm/voc/checkbox/index.ts'
 import type { ComponentConfig } from '@/components/wm/voc/types.ts'
+import { WmVocFormCore, WmVocFormPro } from '@/components/wm/voc/form/index.ts'
 
 const components = [
   WmHelloWorld,
@@ -53,6 +54,9 @@ const components = [
   WmVocCheckbox,
   WmVocCheckboxPropForm,
   WmVocCheckboxStat,
+
+  WmVocFormCore,
+  WmVocFormPro,
 ]
 
 export default {
@@ -108,6 +112,10 @@ export {
 
   // voc 客户端组件类型map
   vocComponentTypeMap,
+
+  // 外部可以使用的渲染表单组件
+  WmVocFormCore,
+  WmVocFormPro,
 }
 
 export * from '@/components/wm/voc/types'
