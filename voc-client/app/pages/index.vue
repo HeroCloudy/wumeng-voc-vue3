@@ -5,16 +5,10 @@
  @time: 2025/10/27 16:34
 -->
 <template>
-  <div class="index">
-    <survey />
-  </div>
+  <div class="index">访问路径出错</div>
 </template>
 
-<script setup lang="ts">
-defineProps<{
-  p?: string
-}>()
-</script>
+<script setup lang="ts"></script>
 <style scoped lang="scss">
 .index {
 }

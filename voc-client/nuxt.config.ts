@@ -3,7 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/icon', '@unocss/nuxt', '@element-plus/nuxt'],
-  css: ['@unocss/reset/tailwind-compat.css', '~/assets/scss/index.scss'],
+  css: [
+    '@wumeng-voc-vue3/voc-components/dist/voc-components.css',
+    '@unocss/reset/tailwind-compat.css',
+    '~/assets/scss/index.scss',
+  ],
   icon: {
     localApiEndpoint: '/nuxt-icon',
   },

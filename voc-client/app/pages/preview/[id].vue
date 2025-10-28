@@ -6,7 +6,7 @@
 -->
 <template>
   <div class="index">
-    <survey :list="data?.componentList ?? []" />
+    <survey :list="data?.componentList ?? []" preview />
   </div>
 </template>
 
