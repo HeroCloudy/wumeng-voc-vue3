@@ -28,10 +28,16 @@ const opt = computed(() => route.params.opt)
 
 const coreStore = useCoreStore()
 
+const previewFn = (url: string) => {
+  console.log('in parent preview fn', url)
+  window.open(url, 'mozillaWindow', 'popup')
+}
+
 const propsToChild = computed(() => {
   return {
     token: coreStore.token,
     userInfo: coreStore.userInfo,
+    previewFn,
   }
 })
 

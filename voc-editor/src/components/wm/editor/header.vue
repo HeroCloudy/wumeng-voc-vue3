@@ -31,7 +31,10 @@
       </div>
 
       <div class="right">
-        <el-button :loading="saveLoading" @click="onSaveBtnClick"> 保存 </el-button>
+        <el-button :loading="saveLoading" @click="onPreviewBtnClick"> 预览 </el-button>
+        <el-button :loading="saveLoading" @click="onSaveBtnClick" type="primary" plain>
+          保存
+        </el-button>
         <el-button type="primary" :loading="publishLoading" @click="onPublishBtnClick">
           发布
         </el-button>
@@ -95,6 +98,13 @@ const { loading: publishLoading, run: onPublishBtnClick } = useRequest(
     },
   },
 )
+
+const onPreviewBtnClick = () => {
+  if (window.$wujie.props?.previewFn) {
+    const url = `${import.meta.env.VITE_CLIENT_URL}/preview/${id.value}`
+    window.$wujie.props.previewFn(url)
+  }
+}
 
 const onSaveBtnClick = async () => {
   await onSave()

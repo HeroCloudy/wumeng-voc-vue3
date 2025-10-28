@@ -73,7 +73,7 @@ watch(
   @apply overflow-hidden h-full;
 
   .component-wrapper {
-    @apply m-2 p-2;
+    @apply mx-2 px-2 py-4px;
     border: 1px solid #fff;
     border-radius: 4px;
 

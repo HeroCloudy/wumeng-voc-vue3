@@ -67,7 +67,7 @@ const route = useRoute()
 
 const { pageInfo } = useGetPageInfo()
 
-const url = computed(() => `http://localhost:3010/voc/${(route.params as any)?.id ?? ''}`)
+const url = computed(() => `${import.meta.env.VITE_CLIENT_URL}/${(route.params as any)?.id ?? ''}`)
 const linkInputRef = useTemplateRef<InputInstance>('linkInputRef')
 const onCopyLinkBtnClick = () => {
   if (!linkInputRef.value) {
