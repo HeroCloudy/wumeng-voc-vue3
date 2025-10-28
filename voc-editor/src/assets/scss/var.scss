@@ -15,9 +15,9 @@ html:root {
 
     @each $i in (1, 2, 3, 5, 7, 8, 9) {
       // wumeng 颜色混合
-      --wm-color-#{$type}-light-#{$i}: #{color.mix(#fff, $color, $i * 10%)};
+      --wm-color-#{$type}-light-#{$i}: #{color.mix(#fff, $color, $i * 10%)} ;
       // el 颜色混合
-      --el-color-#{$type}-light-#{$i}: #{color.mix(#fff, $color, $i * 10%)};
+      --el-color-#{$type}-light-#{$i}: #{color.mix(#fff, $color, $i * 10%)} !important;
     }
   }
 }

@@ -64,7 +64,7 @@ useBindCanvasKey()
 .editor-canvas {
   @apply p-4;
   .component-wrapper {
-    @apply p-2;
+    @apply px-2 py-4px;
     border: 1px solid #fff;
     border-radius: 4px;
 

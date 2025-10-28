@@ -16,16 +16,22 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { watch } from 'vue'
 import { defaultProps, type WmVocRadioPropsType } from './props.ts'
 
 const props = withDefaults(defineProps<WmVocRadioPropsType>(), defaultProps)
 
 const modelValue = defineModel<string>()
 
-onMounted(() => {
-  modelValue.value = (props as any).value ?? ''
-})
+watch(
+  () => (props as any).value,
+  (newValue: any) => {
+    if (newValue) {
+      modelValue.value = newValue
+    }
+  },
+  { immediate: true },
+)
 </script>
 <style scoped lang="scss">
 @use '@/assets/scss/voc';
@@ -34,6 +40,10 @@ onMounted(() => {
 
   .el-space--horizontal {
     @apply flex-wrap;
+  }
+  .el-space--vertical {
+    @apply mt-1;
+    gap: 0 !important;
   }
   :deep(.el-radio) {
     line-height: unset !important;
