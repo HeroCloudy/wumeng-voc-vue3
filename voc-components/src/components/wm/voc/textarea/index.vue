@@ -6,9 +6,9 @@
 -->
 <template>
   <div class="voc-textarea">
-    <div class="title">{{ title }}</div>
-    <div>
-      <el-input type="textarea" :rows="3" :placeholder="placeholder" />
+    <div class="voc-item-title">{{ title }}</div>
+    <div class="input">
+      <el-input v-model="value" type="textarea" :rows="3" :placeholder="placeholder" />
     </div>
   </div>
 </template>
@@ -17,12 +17,15 @@
 import { defaultProps, type WmVocTextareaPropsType } from './props.ts'
 
 withDefaults(defineProps<WmVocTextareaPropsType>(), defaultProps)
+
+const value = defineModel<string>()
 </script>
 <style scoped lang="scss">
+@use '@/assets/scss/voc';
 .voc-textarea {
-  @apply my-2;
-  .title {
-    @apply my-2 text-16px font-bold;
+  @apply mt-2 w-full;
+  .input {
+    @apply mt-2 w-full;
   }
 }
 </style>

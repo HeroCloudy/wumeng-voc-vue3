@@ -1,4 +1,4 @@
-import type { App } from 'vue'
+import type { App, Component } from 'vue'
 import WmHelloWorld from '@/components/hello-world'
 import { WmVocInfo, WmVocInfoPropForm, WmVocInfoConfig } from '@/components/wm/voc/info/index.ts'
 import {
@@ -33,6 +33,7 @@ import {
   WmVocCheckboxStat,
   WmVocCheckboxConfig,
 } from '@/components/wm/voc/checkbox/index.ts'
+import type { ComponentConfig } from '@/components/wm/voc/types.ts'
 
 const components = [
   WmHelloWorld,
@@ -63,6 +64,20 @@ export default {
   },
 }
 
+const allConfigList = [
+  WmVocInfoConfig,
+  WmVocInputConfig,
+  WmVocTitleConfig,
+  WmVocTextareaConfig,
+  WmVocParagraphConfig,
+  WmVocRadioConfig,
+  WmVocCheckboxConfig,
+]
+const vocComponentTypeMap: Record<string, Component> = {}
+allConfigList.forEach((component: ComponentConfig) => {
+  vocComponentTypeMap[component.type] = component.component
+})
+
 export {
   WmHelloWorld,
   WmVocInfo,
@@ -90,6 +105,9 @@ export {
   WmVocParagraphConfig,
   WmVocRadioConfig,
   WmVocCheckboxConfig,
+
+  // voc 客户端组件类型map
+  vocComponentTypeMap,
 }
 
 export * from '@/components/wm/voc/types'

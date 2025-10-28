@@ -17,13 +17,15 @@ import { defaultProps, type WmVocInfoPropsType } from './props.ts'
 withDefaults(defineProps<WmVocInfoPropsType>(), defaultProps)
 </script>
 <style scoped lang="scss">
+@use '@/assets/scss/voc';
 .voc-info {
-  @apply text-center my-3;
+  @apply text-center my-4 w-full;
+
   .title {
-    @apply text-32px;
+    @apply text-7;
   }
   .desc {
-    @apply whitespace-pre-wrap text-gray-800;
+    @apply whitespace-pre-wrap text-gray-600 text-4 font-400 mt-1;
   }
 }
 </style>

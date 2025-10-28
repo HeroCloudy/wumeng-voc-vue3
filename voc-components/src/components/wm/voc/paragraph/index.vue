@@ -16,6 +16,8 @@ import { defaultProps, type WmVocParagraphPropsType } from './props.ts'
 withDefaults(defineProps<WmVocParagraphPropsType>(), defaultProps)
 </script>
 <style scoped lang="scss">
+@use '@/assets/scss/voc';
 .voc-paragraph {
+  @apply text-4 text-gray-600 my-2;
 }
 </style>
