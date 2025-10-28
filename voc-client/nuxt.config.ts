@@ -15,14 +15,9 @@ export default defineNuxtConfig({
   devServer: {
     port: 9090,
   },
-  nitro: {
-    // 代理，前后端分离有用
-    devProxy: {
-      '/voc-api': {
-        target: 'http://localhost:9001',
-        changeOrigin: true,
-        prependPath: true,
-      },
+  runtimeConfig: {
+    public: {
+      API_URL: process.env.API_URL,
     },
   },
 })

@@ -31,6 +31,33 @@ const { data }: any = await useAsyncData(() => surveyService.getDetail(id))
 const onSubmit = async () => {
   console.log('submit', form.value)
   console.log(vocFormProRef.value?.getFormRef())
+
+  if (!data.value) {
+    return
+  }
+  const { id } = data.value
+  const values: Record<string, string>[] = []
+  Object.keys(form.value).forEach((k: string) => {
+    if (form.value[k] !== undefined) {
+      if (Array.isArray(form.value[k])) {
+        for (let i = 0; i < form.value[k].length; i++) {
+          values.push({ componentId: k, value: form.value[k][i] })
+        }
+      } else {
+        values.push({ componentId: k, value: form.value[k] })
+      }
+    }
+  })
+
+  const params = {
+    submitter: 'bbb',
+    surveyId: id,
+    values,
+  }
+  console.log(params)
+
+  const resp = await surveyService.submit(params)
+  console.log(resp)
 }
 </script>
 <style scoped lang="scss"></style>

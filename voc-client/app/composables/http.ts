@@ -23,10 +23,11 @@ interface HttpParms {
  * @returns 响应结果
  */
 export const req = (obj: HttpParms) => {
+  const config = useRuntimeConfig()
   return new Promise<void>((resolve, reject) => {
     const router = useRouter()
 
-    $fetch((obj.baseURL ?? process.env.API_URL) + obj.url, {
+    $fetch(config.public.API_URL + obj.url, {
       method: obj.method ?? 'GET',
       query: obj?.query ?? null,
       body: obj?.body ?? null,
