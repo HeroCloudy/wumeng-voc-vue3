@@ -25,22 +25,24 @@
 </template>
 
 <script setup lang="ts">
-import { surveyService } from '~/services/survey'
+import { useCreateSurvey } from '~/hooks/use-create-survey'
 
 defineProps<{
   isShowAddBtn?: boolean
   title: string
 }>()
 
-const router = useRouter()
+const { loading, onCreate } = useCreateSurvey()
 
-const { loading, run: onCreate } = useRequest(surveyService.create, {
-  manual: true,
-  onSuccess: (data: string) => {
-    console.log('data', data)
-    router.push(`/voc-detail/edit/${data}`)
-  },
-})
+// const router = useRouter()
+//
+// const { loading, run: onCreate } = useRequest(surveyService.create, {
+//   manual: true,
+//   onSuccess: (data: string) => {
+//     console.log('data', data)
+//     router.push(`/voc-detail/edit/${data}`)
+//   },
+// })
 </script>
 <style scoped lang="scss">
 .list-header {

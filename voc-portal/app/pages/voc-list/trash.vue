@@ -73,6 +73,12 @@ const size = ref(20)
 
 const selectedList = ref<Survey[]>([])
 
+const { finish } = useLoadingIndicator()
+
+onMounted(() => {
+  finish()
+})
+
 const onSelectionChange = (val: Survey[]) => {
   selectedList.value = val
 }

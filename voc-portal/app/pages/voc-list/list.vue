@@ -18,7 +18,16 @@
             <icon name="fa:spinner" class="icon" />
             数据加载中...
           </div>
-          <div v-if="!hasMore && !loading" class="hint">已加载完全部数据</div>
+          <div v-if="!hasMore && !loading" class="hint">
+            <el-empty v-if="!list?.length" description="你还没有创建问卷">
+              <template #default>
+                <el-button type="primary" :loading="createLoading" @click="onCreate">
+                  创建问卷
+                </el-button>
+              </template>
+            </el-empty>
+            <div v-else>已加载完全部数据</div>
+          </div>
         </div>
       </el-scrollbar>
     </div>
@@ -28,6 +37,7 @@
 <script setup lang="ts">
 import { surveyService } from '~/services/survey'
 import type { PageResult, Survey } from '~/types'
+import { useCreateSurvey } from '~/hooks/use-create-survey'
 
 const route = useRoute()
 
@@ -37,6 +47,14 @@ const page = ref(1)
 const hasMore = computed(() => total.value > list.value.length)
 
 const keyword = computed(() => route.query?.keyword ?? '')
+
+const { finish } = useLoadingIndicator()
+
+const { loading: createLoading, onCreate } = useCreateSurvey()
+
+onMounted(() => {
+  finish()
+})
 
 const { run: loadData, loading } = useRequest(
   () =>

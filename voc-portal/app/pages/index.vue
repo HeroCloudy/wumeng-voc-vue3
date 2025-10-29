@@ -19,7 +19,7 @@
       <home-tech-stack />
     </div>
 
-    <div ref="registerRef">
+    <div ref="registerRef" v-if="!coreStore.token">
       <home-register />
     </div>
 

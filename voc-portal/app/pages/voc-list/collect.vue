@@ -18,7 +18,10 @@
             <icon name="fa:spinner" class="icon" />
             数据加载中...
           </div>
-          <div v-if="!hasMore && !loading" class="hint">已加载完全部数据</div>
+          <div v-if="!hasMore && !loading" class="hint">
+            <el-empty v-if="!list?.length" description="你没有收藏的问卷" />
+            <div v-else>已加载完全部数据</div>
+          </div>
         </div>
       </el-scrollbar>
     </div>
@@ -39,6 +42,12 @@ const hasMore = computed(() => total.value > list.value.length)
 const keyword = computed(() => route.query?.keyword ?? '')
 
 const innerList = computed(() => list.value.filter((item) => !!item.isStar))
+
+const { finish } = useLoadingIndicator()
+
+onMounted(() => {
+  finish()
+})
 
 const { run: loadData, loading } = useRequest(
   () =>
