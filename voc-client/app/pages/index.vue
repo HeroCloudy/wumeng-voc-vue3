@@ -5,10 +5,12 @@
  @time: 2025/10/27 16:34
 -->
 <template>
-  <div class="index">访问路径出错</div>
+  <wm-voc-form-error />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { WmVocFormError } from '@wumeng-voc-vue3/voc-components'
+</script>
 <style scoped lang="scss">
 .index {
 }
