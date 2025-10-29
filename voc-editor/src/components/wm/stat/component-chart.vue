@@ -36,12 +36,12 @@ const { loading, run: loadData } = useRequest(
   () =>
     statService.getComponentStat(
       (route.params as any)?.id ?? '',
-      props.selectedComponent?.frontId ?? '',
+      props.selectedComponent?.id ?? '',
     ),
   {
     manual: true,
     onSuccess: (v: any) => {
-      list.value = v?.stat || []
+      list.value = v || []
     },
   },
 )

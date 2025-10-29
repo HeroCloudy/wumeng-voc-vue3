@@ -12,12 +12,10 @@ export const statReqList: ReqConfig[] = [
   ),
   // 获取单个组件的统计数据汇总
   buildItem('/stat/:surveyId/:componentId', 'get', () =>
-    ok({
-      stat: [
-        { name: '选项1', count: 20 },
-        { name: '选项2', count: 10 },
-        { name: '选项3', count: 25 },
-      ],
-    }),
+    ok([
+      { name: '选项1', count: 20 },
+      { name: '选项2', count: 10 },
+      { name: '选项3', count: 25 },
+    ]),
   ),
 ]

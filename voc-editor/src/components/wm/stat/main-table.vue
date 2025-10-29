@@ -9,8 +9,8 @@
     <el-table :data="list" size="large" height="100%" header-row-class-name="table-header">
       <el-table-column
         v-for="item in innerComponentList"
-        :key="item.frontId"
-        :prop="item.frontId"
+        :key="item.id"
+        :prop="item.id"
         :label="item.props?.title ?? item.title"
         :min-width="getWidthByType(item.type)"
       >
@@ -18,7 +18,7 @@
           <div
             :class="[
               'text-16px cursor-pointer ',
-              selectedComponent?.frontId === item.frontId
+              selectedComponent?.id === item.id
                 ? 'text-[var(--wm-color-primary)] font-700'
                 : 'text-gray-600 font-400',
             ]"
