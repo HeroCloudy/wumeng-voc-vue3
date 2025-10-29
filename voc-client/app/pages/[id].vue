@@ -21,6 +21,7 @@
 import { WmVocFormPro, WmVocFormError } from '@wumeng-voc-vue3/voc-components'
 import { surveyService } from '~/services/survey-service'
 
+const router = useRouter()
 const route = useRoute()
 const id = route.params.id as string
 
@@ -45,8 +46,12 @@ const onSubmit = async () => {
   }
   console.log(params)
 
-  const resp = await surveyService.submit(params)
-  console.log(resp)
+  try {
+    await surveyService.submit(params)
+    router.replace('/success')
+  } catch (e) {
+    router.replace('/failure')
+  }
 }
 </script>
 <style scoped lang="scss"></style>
