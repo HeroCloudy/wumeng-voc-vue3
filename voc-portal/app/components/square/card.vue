@@ -13,7 +13,7 @@
 
       <span class="meta-item">
         <icon name="fa-clock-o" class="icon" />
-        {{ item.ss }}分钟
+        {{ item.estimate }}分钟
       </span>
       <span class="meta-item">
         <icon name="fa-calendar" class="icon" />
