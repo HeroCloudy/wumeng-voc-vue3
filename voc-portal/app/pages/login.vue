@@ -115,4 +115,8 @@ const getUserInfoFromStorage = () => {
     password: localStorage.getItem(PASSWORD_KEY),
   }
 }
+
+definePageMeta({
+  layout: 'fix',
+})
 </script>

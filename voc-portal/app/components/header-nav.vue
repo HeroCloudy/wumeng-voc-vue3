@@ -49,6 +49,7 @@ defineProps<{
 }>()
 
 const router = useRouter()
+const route = useRoute()
 const coreStore = useCoreStore()
 
 const userInfo = computed(() => coreStore.userInfo)
@@ -59,10 +60,20 @@ const navList = ref<NavItem[]>([
   { title: '首页', targetRef: 'heroRef' },
   { title: '功能介绍', targetRef: 'featureRef' },
   { title: '使用技术', targetRef: 'techRef' },
+  { title: '问卷广场', to: '/square' },
 ])
 
-const onNavItemClick = (item: NavItem) => {
-  emits('item-click', item)
+const onNavItemClick = async (item: NavItem) => {
+  if (item.to) {
+    if (route.path !== item.to) {
+      router.push(item.to)
+    }
+  } else {
+    if (route.path !== '/') {
+      await router.push('/')
+    }
+    emits('item-click', item)
+  }
 }
 
 const onRegBtnClick = () => {
@@ -124,8 +135,8 @@ const onLogoutBtnClick = () => {
 }
 
 .nav-link:hover {
-  @apply text-white;
-  opacity: 0.9;
+  //@apply text-white !important;
+  //opacity: 0.9;
 }
 
 .navbar.scrolled .nav-link:hover {
@@ -140,7 +151,7 @@ const onLogoutBtnClick = () => {
   width: 0;
   height: 2px;
   background-color: white;
-  transition: width 0.8s ease;
+  transition: width 0.3s ease;
 }
 
 .navbar.scrolled .nav-link::after {
@@ -170,10 +181,6 @@ const onLogoutBtnClick = () => {
   background-color: #1c9399;
   color: white;
   border: none;
-}
-
-.nav-link:hover {
-  color: #1c9399;
 }
 
 /* 登录注册按钮在透明导航时的样式 */

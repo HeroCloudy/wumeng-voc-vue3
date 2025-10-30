@@ -11,7 +11,11 @@
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+definePageMeta({
+  layout: 'fix',
+})
+</script>
 <style scoped lang="scss">
 .register {
   @apply h-full;

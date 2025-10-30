@@ -18,7 +18,7 @@
 <script setup lang="ts"></script>
 <style scoped lang="scss">
 .default {
-  @apply min-h-screen flex flex-col;
+  @apply h-screen flex flex-col;
   .footer {
     @apply bg-[var(--bg-color)] text-center text-gray-400 py-2;
     border-top: 1px solid var(--border-color);
