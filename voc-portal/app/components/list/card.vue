@@ -80,6 +80,7 @@
 <script setup lang="ts">
 import type { Survey } from '~/types'
 import { surveyService } from '~/services/survey'
+import { useCopySurvey } from '~/composables/use-copy-survey'
 
 const props = defineProps<{
   item: Survey
@@ -105,12 +106,14 @@ const onTitleClick = () => {
   }
 }
 
-const { loading: copyLoading, run: onCopy } = useRequest(() => surveyService.copy(props.item.id), {
-  manual: true,
-  onSuccess(v: any) {
-    router.push(`/voc-detail/edit/${v}`)
-  },
-})
+const { copyLoading, onCopy } = useCopySurvey(props.item.id)
+
+// const { loading: copyLoading, run: onCopy } = useRequest(() => surveyService.copy(props.item.id), {
+//   manual: true,
+//   onSuccess(v: any) {
+//     router.push(`/voc-detail/edit/${v}`)
+//   },
+// })
 
 const onPublishBtnClick = () => {
   ElMessageBox.confirm(`是否确定${props.item.isPublished ? '撤回' : '发布'}该问卷`, 'Warning', {

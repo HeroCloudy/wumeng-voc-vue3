@@ -24,13 +24,16 @@
     <p class="desc">{{ item.description }}</p>
     <div class="actions">
       <el-button type="primary" plain class="flex-1">预览问卷</el-button>
-      <el-button type="success" plain class="flex-1">复制该问卷</el-button>
+      <el-button type="success" plain class="flex-1" :loading="copyLoading" @click="onCopyBtnClick">
+        复制该问卷
+      </el-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useDictStore } from '~/store/dict'
+import { useCoreStore } from '~/store/core'
 
 const DICT_CATEGORY = 'voc_category'
 
@@ -39,6 +42,8 @@ const props = defineProps<{
 }>()
 
 const dictStore = useDictStore()
+const coreStore = useCoreStore()
+const router = useRouter()
 
 const tagColor = computed(() => {
   const color = dictStore.getColor(DICT_CATEGORY, props.item.category) as string
@@ -52,6 +57,23 @@ const tagColor = computed(() => {
     return `var(${color})`
   }
 })
+
+const { copyLoading, onCopy } = useCopySurvey(props.item.id)
+
+const onCopyBtnClick = () => {
+  if (!coreStore.token || !coreStore.userInfo) {
+    ElMessageBox.confirm('你还没有登录，登录后才能复制问卷。是否立即登录？', '提示', {
+      confirmButtonText: '立即登录',
+      cancelButtonText: '取消',
+    })
+      .then(() => {
+        router.push('/login')
+      })
+      .catch(() => {})
+  } else {
+    onCopy()
+  }
+}
 </script>
 <style scoped lang="scss">
 .square-card {
