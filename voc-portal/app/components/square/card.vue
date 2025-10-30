@@ -23,7 +23,9 @@
     <div class="title">{{ item.title }}</div>
     <p class="desc">{{ item.description }}</p>
     <div class="actions">
-      <el-button type="primary" plain class="flex-1">预览问卷</el-button>
+      <el-button type="primary" plain class="flex-1" @click="onPreviewBtnClick">
+        预览问卷
+      </el-button>
       <el-button type="success" plain class="flex-1" :loading="copyLoading" @click="onCopyBtnClick">
         复制该问卷
       </el-button>
@@ -73,6 +75,11 @@ const onCopyBtnClick = () => {
   } else {
     onCopy()
   }
+}
+
+const onPreviewBtnClick = () => {
+  const url = `http://localhost:9090/preview/${props.item.id}`
+  window.open(url, 'mozillaWindow', 'popup')
 }
 </script>
 <style scoped lang="scss">

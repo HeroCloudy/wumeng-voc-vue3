@@ -130,7 +130,7 @@ const loadList = async () => {
   list.value = resp?.list ?? []
 }
 
-const onChange = async () => {
+const onChange = () => {
   nextTick(() => {
     loadList()
   })
