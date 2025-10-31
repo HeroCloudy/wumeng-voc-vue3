@@ -60,6 +60,7 @@ export const req = (obj: HttpParms) => {
         // 处理响应错误
         const { status } = response
         if (status === 401) {
+          coreStore.logout()
           router.replace('/login')
         }
       },

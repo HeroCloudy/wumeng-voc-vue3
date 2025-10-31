@@ -11,7 +11,7 @@
         :is="config?.propComponent"
         v-bind="selectedComponent.props"
         @change="onChange"
-        :disabled="selectedComponent.isLocked || selectedComponent.isHidden"
+        :disabled="selectedComponent.isLocked || !!selectedComponent.isHidden"
       />
     </div>
     <div v-else>未选中任何组件</div>

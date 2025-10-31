@@ -51,7 +51,7 @@
                 class="pointer-events-auto!"
                 @click.stop="editorStore.updateComponentHidden(item.frontId, !item.isHidden)"
                 :type="item.isHidden ? 'primary' : 'default'"
-                :circle="item.isHidden"
+                :circle="!!item.isHidden"
                 :text="!item.isHidden"
               >
                 <wm-icon icon="ant-design:eye-invisible-outlined" />
@@ -62,7 +62,7 @@
                 class="pointer-events-auto!"
                 @click.stop="editorStore.toggleComponentLock(item.frontId)"
                 :type="item.isLocked ? 'primary' : 'default'"
-                :circle="item.isLocked"
+                :circle="!!item.isLocked"
                 :text="!item.isLocked"
               >
                 <wm-icon icon="ant-design:lock-outlined" />
