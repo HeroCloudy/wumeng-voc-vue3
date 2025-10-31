@@ -11,7 +11,7 @@
       @click="onToggle"
       :style="{ width: `${iconSize}px`, height: `${iconSize}px` }"
     >
-      <div class="i-fa-comments" />
+      <div class="btn-icon" />
     </div>
 
     <chat-dialog :bottom="iconSize + 10" v-model="isShow" :title="title">
@@ -38,7 +38,7 @@ const props = withDefaults(
     title?: string
   }>(),
   {
-    bottom: 100,
+    bottom: 30,
     right: 30,
     iconSize: 60,
   },
@@ -82,7 +82,7 @@ const messageList = ref<Msg[]>([
   },
 ])
 
-const isShow = ref(true)
+const isShow = ref(false)
 
 const innerStyle = computed(() => ({
   bottom: `${props.bottom}px`,
@@ -104,8 +104,13 @@ const onSend = (value: string) => {
   .chat-icon {
     @apply rd-50% text-white flex items-center justify-center text-24px cursor-pointer;
     background: linear-gradient(135deg, #1c9399 0%, #29b0b7 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    //box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px var(--wm-color-primary-light-3);
     transition: all 0.3s ease;
+
+    .btn-icon {
+      @apply i-fa-comments;
+    }
 
     &:hover {
       transform: translateY(-3px);

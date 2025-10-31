@@ -9,7 +9,7 @@
     <div class="chat-header">
       <h3 class="title">{{ title }}</h3>
       <button class="close" @click="onCloseBtnClick">
-        <div class="i-fa-times" />
+        <div class="btn-close" />
       </button>
     </div>
     <div class="content" ref="containerRef">
@@ -90,6 +90,10 @@ onMounted(() => {
 
       &:hover {
         opacity: 0.8;
+      }
+
+      .btn-close {
+        @apply i-fa-times;
       }
     }
   }

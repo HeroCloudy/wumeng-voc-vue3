@@ -24,6 +24,8 @@
     </div>
 
     <home-back-top-btn />
+
+    <ai-assistant />
   </div>
 </template>
 
@@ -61,8 +63,10 @@ const onUseNowBtnClick = () => {
 }
 
 const onItemClick = (val: NavItem) => {
-  const target = refMap.value[val.targetRef]
-  target?.scrollIntoView({ behavior: 'smooth' })
+  if (val.targetRef) {
+    const target = refMap.value[val.targetRef]
+    target?.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 <style scoped lang="scss"></style>

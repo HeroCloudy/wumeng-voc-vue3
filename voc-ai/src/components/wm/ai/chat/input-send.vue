@@ -14,7 +14,7 @@
       @keyup.enter.prevent="onSendBtnClick"
     />
     <button :class="['btn-send', !inputText?.trim() ? 'disabled' : '']" @click="onSendBtnClick">
-      <div class="i-fa-paper-plane" />
+      <div class="icon-send" />
     </button>
   </div>
 </template>
@@ -64,6 +64,10 @@ const onSendBtnClick = () => {
 
     &.disabled {
       @apply cursor-not-allowed bg-none bg-[#ddd];
+    }
+
+    .icon-send {
+      @apply i-fa-paper-plane;
     }
   }
 }

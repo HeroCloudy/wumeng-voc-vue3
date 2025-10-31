@@ -1,8 +1,22 @@
 {
   "name": "@wumeng-voc-vue3/voc-ai",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
+  "main": "./dist/wm-voc-ai.umd.js",
+  "module": "./dist/wm-voc-ai.es.js",
+  "types": "./dist/wm-voc-ai.es.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/wm-voc-ai.es.d.ts",
+      "import": "./dist/wm-voc-ai.es.js",
+      "require": "./dist/wm-voc-ai.umd.js"
+    },
+    "./dist/voc-ai.css": "./dist/voc-ai.css"
+  },
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -15,14 +29,12 @@
   "dependencies": {
     "@unocss/reset": "66.1.0-beta.11",
     "@vueuse/core": "^13.9.0",
-    "element-plus": "^2.11.4",
-    "pinia": "^3.0.3",
-    "pinia-plugin-persistedstate": "^4.5.0",
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.394",
+    "@microsoft/api-extractor": "^7.53.3",
     "@tsconfig/node22": "^22.0.2",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-vue": "^6.0.1",
@@ -39,13 +51,10 @@
     "sass": "^1.93.2",
     "typescript": "~5.9.0",
     "unocss": "66.1.0-beta.11",
-    "unplugin-auto-import": "^20.2.0",
-    "unplugin-vue-components": "^29.1.0",
-    "unplugin-vue-router": "^0.15.0",
+    "unplugin-dts": "1.0.0-beta.6",
     "vite": "^7.1.7",
     "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-vue-devtools": "^8.0.2",
-    "vite-plugin-vue-layouts": "^0.11.0",
     "vue-tsc": "^3.1.1"
   }
 }

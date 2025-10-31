@@ -78,6 +78,8 @@
         </div>
       </div>
     </section>
+
+    <ai-assistant />
   </div>
 </template>
 

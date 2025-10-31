@@ -24,7 +24,8 @@ const onBtnClick = () => {
 </script>
 <style scoped lang="scss">
 .back-top-btn {
-  @apply fixed bottom-[30px] right-[30px] w-[48px] h-[48px] bg-[var(--wm-color-primary)] text-white rd-[50%] cursor-pointer text-[20px];
+  @apply fixed size-[60px] bottom-[120px] right-[30px] text-white rd-[50%] cursor-pointer text-[20px];
+  background: linear-gradient(135deg, #1c9399 0%, #29b0b7 100%);
   border: none;
   box-shadow: 0 4px 12px var(--wm-color-primary-light-3);
   transition: all 0.3s ease;

@@ -18,4 +18,5 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
+  safelist: ['i-fa-times', 'i-fa-comments', 'i-fa-paper-plane'],
 })
