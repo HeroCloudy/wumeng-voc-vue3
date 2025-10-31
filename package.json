@@ -14,7 +14,8 @@
     "components:dev": "pnpm --filter=@wumeng-voc-vue3/voc-components dev",
     "components:build": "pnpm --filter=@wumeng-voc-vue3/voc-components build",
     "components:watch": "pnpm --filter=@wumeng-voc-vue3/voc-components build:watch",
-    "client:dev": "pnpm --filter=@wumeng-voc-vue3/voc-client dev"
+    "client:dev": "pnpm --filter=@wumeng-voc-vue3/voc-client dev",
+    "ai:dev": "pnpm --filter=@wumeng-voc-vue3/voc-ai dev"
   },
   "keywords": [
     "voc",

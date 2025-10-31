@@ -4,6 +4,7 @@ packages:
   - voc-editor
   - voc-client
   - voc-mock
+  - voc-ai
   - packages/**
 
 ignoredBuiltDependencies:
