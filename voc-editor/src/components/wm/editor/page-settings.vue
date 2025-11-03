@@ -10,7 +10,7 @@
       <el-form-item label="问卷标题" prop="title" :rules="[RULES.R('标题不能为空')]">
         <el-input v-model="pageInfo.title" />
       </el-form-item>
-      <el-form-item label="问卷信息" prop="desc">
+      <el-form-item label="问卷信息" prop="description">
         <el-input type="textarea" :rows="3" v-model="pageInfo.description" />
       </el-form-item>
       <el-form-item label="JS" prop="js">

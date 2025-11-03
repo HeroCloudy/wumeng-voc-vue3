@@ -17,17 +17,39 @@
         'user-message': item.type === 'user',
       }"
     >
-      <div class="message-content" v-html="item.message" />
+      <div class="message-content" v-html="marked(item.message)" @click="onItemClick" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { marked } from 'marked'
 import type { Msg } from './types.ts'
 
 defineProps<{
   list: Msg[]
 }>()
+
+const emits = defineEmits<{
+  'btn-click': [action: string, data?: string]
+}>()
+
+const onItemClick = (event: MouseEvent) => {
+  const target = event.target as HTMLElement
+
+  // 检查是否是按钮元素
+  if (target.tagName === 'BUTTON') {
+    const button = target
+    const action = button.dataset.action
+    const value = button.dataset.value
+    if (action) {
+      emits('btn-click', action, value)
+    }
+
+    // 阻止事件冒泡
+    event.stopPropagation()
+  }
+}
 </script>
 <style scoped lang="scss">
 .chat-content {
@@ -36,7 +58,7 @@ defineProps<{
 
     .message-content {
       @apply max-w-80% p-12px rd-12px text-14px;
-      line-height: 1.4;
+      line-height: 1.6;
       word-wrap: break-word;
     }
 

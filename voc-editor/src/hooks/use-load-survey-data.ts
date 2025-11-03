@@ -20,13 +20,13 @@ export function useLoadSurveyData() {
         const {
           componentList = [],
           title = '',
-          desc = '',
+          description = '',
           js = '',
           css = '',
           isPublished = false,
         } = data
         editorStore.setComponentList(componentList)
-        vocStore.setPageInfo({ title, desc, js, css, isPublished })
+        vocStore.setPageInfo({ title, description, js, css, isPublished })
       }
     },
   })

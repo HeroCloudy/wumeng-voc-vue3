@@ -1,0 +1,7 @@
+button.voc-chat-message-btn {
+  @apply text-14px text-[var(--wm-color-primary)] cursor-pointer underline bg-transparent py-1 px-2;
+
+  &:hover {
+    @apply text-[var(--wm-color-primary-light-5)];
+  }
+}

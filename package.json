@@ -16,14 +16,15 @@
     "components:watch": "pnpm --filter=@wumeng-voc-vue3/voc-components build:watch",
     "client:dev": "pnpm --filter=@wumeng-voc-vue3/voc-client dev",
     "ai:dev": "pnpm --filter=@wumeng-voc-vue3/voc-ai dev",
-    "ai:build": "pnpm --filter=@wumeng-voc-vue3/voc-ai build"
+    "ai:build": "pnpm --filter=@wumeng-voc-vue3/voc-ai build",
+    "ai:watch": "pnpm --filter=@wumeng-voc-vue3/voc-ai build:watch"
   },
   "keywords": [
     "voc",
     "survey"
   ],
   "license": "ISC",
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "devDependencies": {
     "@wumeng-voc-vue3/voc-components": "workspace:*",
     "@wumeng-voc-vue3/voc-editor": "workspace:*",

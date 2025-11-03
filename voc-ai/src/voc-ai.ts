@@ -13,3 +13,5 @@ export default {
 }
 
 export { WmAiChat }
+
+export * from '@/components/wm/ai/chat/types'

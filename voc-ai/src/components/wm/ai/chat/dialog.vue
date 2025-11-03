@@ -8,6 +8,7 @@
   <div :class="['chat-dialog', show ? 'show' : '']" :style="innerStyle">
     <div class="chat-header">
       <h3 class="title">{{ title }}</h3>
+
       <button class="close" @click="onCloseBtnClick">
         <div class="btn-close" />
       </button>
@@ -23,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, useTemplateRef } from 'vue'
+import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -37,6 +38,10 @@ const props = withDefaults(
   },
 )
 
+const emits = defineEmits<{
+  close: []
+}>()
+
 const show = defineModel({ default: false })
 
 const innerStyle = computed(() => ({
@@ -46,20 +51,25 @@ const innerStyle = computed(() => ({
 
 const onCloseBtnClick = () => {
   show.value = false
+  emits('close')
 }
 
 const containerRef = useTemplateRef<HTMLDivElement>('containerRef')
 
-const scrollBottom = () => {
-  if (containerRef.value) {
-    containerRef.value.scrollTop = containerRef.value.scrollHeight
-  }
+const scrollToBottom = () => {
+  nextTick(() => {
+    if (containerRef.value) {
+      containerRef.value.scrollTop = containerRef.value.scrollHeight
+    }
+  })
 }
 
 onMounted(() => {
-  nextTick(() => {
-    scrollBottom()
-  })
+  scrollToBottom()
+})
+
+defineExpose({
+  scrollToBottom,
 })
 </script>
 <style scoped lang="scss">
