@@ -17,7 +17,10 @@
     "client:dev": "pnpm --filter=@wumeng-voc-vue3/voc-client dev",
     "ai:dev": "pnpm --filter=@wumeng-voc-vue3/voc-ai dev",
     "ai:build": "pnpm --filter=@wumeng-voc-vue3/voc-ai build",
-    "ai:watch": "pnpm --filter=@wumeng-voc-vue3/voc-ai build:watch"
+    "ai:watch": "pnpm --filter=@wumeng-voc-vue3/voc-ai build:watch",
+    "editor:build": "pnpm --filter=@wumeng-voc-vue3/voc-editor build",
+    "portal:build": "pnpm --filter=@wumeng-voc-vue3/voc-portal build",
+    "client:build": "pnpm --filter=@wumeng-voc-vue3/voc-client build"
   },
   "keywords": [
     "voc",

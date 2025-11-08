@@ -15,7 +15,7 @@
       @add-message="onAddMessage"
       @update-last-text="onUpdateLastText"
       :token="coreStore.token"
-      url="http://localhost:9001/api/ai/stream"
+      :url="`/voc-api/api/ai/stream`"
       @btn-click="onHTMLMessageBtnClick"
     />
   </client-only>

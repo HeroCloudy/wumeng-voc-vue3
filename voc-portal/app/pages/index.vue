@@ -43,6 +43,11 @@ const registerRef = useTemplateRef<HTMLDivElement>('registerRef')
 
 const refMap = ref<any>({})
 
+/* test begin */
+const config = useRuntimeConfig()
+console.log('config.public.NUXT_EDITOR_URL11', config.public.editorUrl)
+/* test end */
+
 onMounted(() => {
   nextTick(() => {
     refMap.value = {

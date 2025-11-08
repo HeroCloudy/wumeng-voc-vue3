@@ -15,8 +15,10 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vite.dev/config/
 export default defineConfig((configEnv: ConfigEnv) => {
   const env = loadEnv(configEnv.mode, process.cwd())
+  console.log(configEnv.mode)
 
   return {
+    base: process.env.NODE_ENV !== 'development' ? '/voc-editor/' : '/',
     plugins: [
       VueRouter({}),
       // ⚠️ Vue must be placed after VueRouter()
@@ -52,13 +54,13 @@ export default defineConfig((configEnv: ConfigEnv) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
-    // css: {
-    //   preprocessorOptions: {
-    //     scss: {
-    //       api: 'modern',
-    //     },
-    //   },
-    // },
+    css: {
+      //   preprocessorOptions: {
+      //     scss: {
+      //       api: 'modern',
+      //     },
+      //   },
+    },
     server: {
       port: 8081,
       proxy: {

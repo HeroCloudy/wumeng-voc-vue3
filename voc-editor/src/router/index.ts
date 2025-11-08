@@ -5,7 +5,7 @@ import type { App } from 'vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: setupLayouts(routes),
+  routes: setupLayouts(routes as any),
 })
 
 export const installRouter = (app: App) => {

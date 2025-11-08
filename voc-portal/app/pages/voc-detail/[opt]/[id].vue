@@ -11,7 +11,7 @@
         width="100%"
         height="100%"
         name="voc-editor"
-        :url="`http://localhost:8081/${opt}/${id}`"
+        :url="`${config.public.editorUrl}/${opt}/${id}`"
         :sync="true"
         :props="propsToChild"
       ></WujieVue>
@@ -25,6 +25,8 @@ import { useCoreStore } from '~/store/core'
 const route = useRoute()
 const id = computed(() => route.params.id)
 const opt = computed(() => route.params.opt)
+
+const config = useRuntimeConfig()
 
 const coreStore = useCoreStore()
 

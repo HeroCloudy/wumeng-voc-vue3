@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   ssr: true, // 是否开启 ssr
   devServer: {
     port: 8080,
+    host: '0.0.0.0',
   },
   nitro: {
     // 代理，前后端分离有用
@@ -26,6 +27,11 @@ export default defineNuxtConfig({
         changeOrigin: true,
         prependPath: true,
       },
+    },
+  },
+  runtimeConfig: {
+    public: {
+      editorUrl: '',
     },
   },
 })

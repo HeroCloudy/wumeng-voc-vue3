@@ -27,7 +27,7 @@ export const req = (obj: HttpParms) => {
   return new Promise<void>((resolve, reject) => {
     const router = useRouter()
 
-    $fetch(config.public.API_URL + obj.url, {
+    $fetch(config.public.apiUrl + obj.url, {
       method: obj.method ?? 'GET',
       query: obj?.query ?? null,
       body: obj?.body ?? null,
