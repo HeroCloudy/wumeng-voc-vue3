@@ -12,6 +12,8 @@ export default WmVocTitle
 export const WmVocTitleConfig: ComponentConfig = {
   type: 'title',
   title: '标题',
+  category: 'display',
+  icon: 'mdi:format-title',
   component: WmVocTitle,
   defaultProps,
   propComponent: WmVocTitlePropForm,

@@ -15,12 +15,16 @@ export type VocComponentPropsType = WmVocInfoPropsType &
   WmVocRadioPropsType &
   WmVocCheckboxPropsType
 
+export type Category = 'input' | 'select' | 'display'
+
 /**
  * 每个组件需要导出的配置信息的结构定义
  */
 export interface ComponentConfig {
   type: string
   title: string
+  category: Category
+  icon: string
   defaultProps: Partial<VocComponentPropsType>
   component: Component
   propComponent: Component

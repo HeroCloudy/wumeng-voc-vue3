@@ -12,6 +12,8 @@ export default WmVocTextarea
 export const WmVocTextareaConfig: ComponentConfig = {
   type: 'textarea',
   title: '多行输入框',
+  category: 'input',
+  icon: 'mdi:form-textarea',
   component: WmVocTextarea,
   defaultProps,
   propComponent: WmVocTextareaPropForm,

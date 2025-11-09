@@ -11,7 +11,9 @@ withInstall('WmVocInputPropForm', WmVocInputPropForm)
 
 export const WmVocInputConfig: ComponentConfig = {
   type: 'input',
-  title: '输入框',
+  title: '单行输入框',
+  category: 'input',
+  icon: 'mdi:cursor-text',
   component: WmVocInput,
   defaultProps,
   propComponent: WmVocInputPropForm,

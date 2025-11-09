@@ -12,6 +12,8 @@ export default WmVocInfo
 export const WmVocInfoConfig: ComponentConfig = {
   type: 'info',
   title: '问卷信息',
+  category: 'display',
+  icon: 'mdi:information-outline',
   component: WmVocInfo,
   defaultProps,
   propComponent: WmVocInfoPropForm,

@@ -14,6 +14,8 @@ export default WmVocRadio
 export const WmVocRadioConfig: ComponentConfig = {
   type: 'radio',
   title: '单选框',
+  category: 'select',
+  icon: 'mdi:radiobox-blank',
   component: WmVocRadio,
   defaultProps,
   propComponent: WmVocRadioPropForm,

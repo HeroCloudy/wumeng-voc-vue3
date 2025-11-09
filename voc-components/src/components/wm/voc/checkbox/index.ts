@@ -14,6 +14,8 @@ export default WmVocCheckbox
 export const WmVocCheckboxConfig: ComponentConfig = {
   type: 'checkbox',
   title: '复选框',
+  category: 'select',
+  icon: 'mdi:checkbox-outline',
   component: WmVocCheckbox,
   defaultProps,
   propComponent: WmVocCheckboxPropForm,

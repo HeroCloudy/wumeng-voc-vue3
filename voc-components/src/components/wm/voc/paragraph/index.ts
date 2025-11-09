@@ -12,6 +12,8 @@ export default WmVocParagraph
 export const WmVocParagraphConfig: ComponentConfig = {
   type: 'paragraph',
   title: '段落',
+  category: 'display',
+  icon: 'mdi:text-long',
   component: WmVocParagraph,
   defaultProps,
   propComponent: WmVocParagraphPropForm,

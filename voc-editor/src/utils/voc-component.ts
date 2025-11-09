@@ -19,22 +19,32 @@ export const componentInfoList: ComponentConfig[] = [
   WmVocCheckboxConfig,
 ]
 
-const groupDisplay = [WmVocTitleConfig, WmVocParagraphConfig, WmVocInfoConfig]
+// const groupDisplay = [WmVocTitleConfig, WmVocParagraphConfig, WmVocInfoConfig]
+//
+// const groupInput = [WmVocInputConfig, WmVocTextareaConfig, WmVocRadioConfig, WmVocCheckboxConfig]
+//
+// export const componentGroup = [
+//   {
+//     groupName: '文本显示',
+//     components: groupDisplay,
+//   },
+//   {
+//     groupName: '用户输入',
+//     components: groupInput,
+//   },
+// ]
+export const componentGroup: Record<string, ComponentConfig[]> = {}
+componentInfoList.forEach((item) => {
+  const category = item.category
+  if (!componentGroup[category]?.length) {
+    componentGroup[category] = []
+  }
+  componentGroup[category].push(item)
+})
 
-const groupInput = [WmVocInputConfig, WmVocTextareaConfig, WmVocRadioConfig, WmVocCheckboxConfig]
-
-export const componentGroup = [
-  {
-    groupName: '文本显示',
-    components: groupDisplay,
-  },
-  {
-    groupName: '用户输入',
-    components: groupInput,
-  },
-]
-
-export const UserInputTypes = groupInput.map((item) => item.type)
+export const UserInputTypes = componentInfoList
+  .filter((item) => item.category !== 'display')
+  .map((item) => item.type) // groupInput.map((item) => item.type)
 
 export const getComponentConfig = (type: string) =>
   componentInfoList.find((item) => item.type === type)
